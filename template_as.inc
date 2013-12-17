@@ -18,8 +18,8 @@ class template_as extends template
 		else $stack = null;
 
 		$content = "
-			<div class=\"content\">
-				<div class=\"nNote nFailure\"";
+			<div class=\"box nocol\">
+				<div class=\"error\" ";
 		
 		if( $detail != null )
 		{
@@ -70,13 +70,23 @@ class template_as extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta name=\"viewport\" content=\"width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;\">
 		<link rel=\"shortcut icon\" href=\"https://www.anotherservice.com/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
+		<meta itemprop=\"image\" href=\"https://www.anotherservice.com/{$GLOBALS['CONFIG']['SITE']}/images/favicon.png\" />
 		<link href=\"/{$GLOBALS['CONFIG']['SITE']}/css/style.css\" rel=\"stylesheet\" type=\"text/css\" />
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
-		<script type=\"text/javascript\">var APP_SITE = '{$GLOBALS['CONFIG']['SITE']}';</script>
-		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
+		<meta name=\"google-site-verification\" content=\"Njm4b4GjVy2lmchM0ePmNBiAlyRToGDgS_pWsNmlZ9U\" />
 	</head>
 	<body>
-		<div id=\"wrapper\">
+	<div id=\"fb-root\"></div>
+	<script>
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = \"//connect.facebook.net/en_US/all.js#xfbml=1&appId=233857746673934\";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+		<div id=\"wrapper\" style=\"".(strstr($GLOBALS['CONFIG']['PAGE'], 'status') !== false?"background-color: #7bbb51; background-image: url('/{$GLOBALS['CONFIG']['SITE']}/images/dotgrid-black.png');":"")."\">
 			<div id=\"header\">
 				<div class=\"container\">
 					<div class=\"logo\">
@@ -90,15 +100,31 @@ class template_as extends template
 			$top .= "
 						</ul>
 					</div>
+					<div class=\"clearfix\"></div>
 				</div>
 			</div>
 ";
 
+if( $_SESSION['MESSAGE'] )
+{
+	$top .= "
+		<div id=\"message\">
+			<img class=\"icon\" style=\"padding-top: 0px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/notifications/".($_SESSION['MESSAGE']['TYPE']=='success'?"accept":"error").".png\" />
+			{$_SESSION['MESSAGE']['TEXT']}
+			<br />
+			<div style=\"text-align: right\"><a href=\"#\" onclick=\"document.getElementById('message').style.visibility = 'hidden';\">{$GLOBALS['lang']['DISMISS']}</a></div>
+		</div>
+	";
+	
+	// we displayed it, clear it
+	$_SESSION['MESSAGE'] = false;
+}
+
 		if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') == false )
 		{
 			$top .= $this->getSubMenu();
-			$top .= "<div id=\"box\">";
 		}
+
 		
 		return $top;
 	}
@@ -110,6 +136,7 @@ class template_as extends template
 		{
 			$menu_data = include_once($menu_file);
 			$menu = "";
+			
 			$logged = $GLOBALS['security']->hasAccess('/panel');
 			foreach( $menu_data as $menu_item )
 			{
@@ -120,15 +147,15 @@ class template_as extends template
 					$active = '';
 					if( preg_match('#^'.rtrim($menu_item['link'], '/').'(/index)?$#', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 						$active = "class=\"active\"";
-
+					
 					if( !$logged && !$menu_item['anonymous'] )
 						continue;
 					else
-					{						
+					{
 						$menu .= "
-							<li id=\"{$menu_item['text']}\" {$active}>
-								<a href=\"{$menu_item['link']}\" title=\"\">{$GLOBALS['lang'][$menu_item['text']]}</a>
-							</li>
+						<li id=\"{$menu_item['text']}\" {$active}>
+							<a href=\"{$menu_item['link']}\" title=\"\">{$GLOBALS['lang'][$menu_item['text']]}</a>
+						</li>
 						";
 					}
 				}
@@ -157,7 +184,9 @@ class template_as extends template
 		
 		if( $menu_file != null )
 		{
-			$current = 'n' . str_replace('/', '', $GLOBALS['CONFIG']['PAGE']);
+			$page = explode('/', $GLOBALS['CONFIG']['PAGE']);
+			$current = 'n' . $page[1];
+
 			$menu_data = include_once($menu_file);
 			$menu = "
 				<!-- Left navigation -->
@@ -195,12 +224,7 @@ class template_as extends template
 	}
 	
 	public function bottom()
-	{
-		$bottom = "";
-		
-		if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') == false )
-			$bottom .= "<div class=\"clearfix\"></div></div>";
-		
+	{	
 		$bottom .= "
 			<!-- Footer -->
 			<div id=\"footer\">
@@ -244,6 +268,15 @@ class template_as extends template
 				</div>
 			</div>
 		</div>
+		<script type=\"text/javascript\">
+			(function() {
+				var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://stats.anotherservice.com/\";
+				_paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);
+				_paq.push([\"setSiteId\", \"3\"]);
+				var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
+				g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
+			})();
+		</script>
 	</body>
 </html>";
 		
