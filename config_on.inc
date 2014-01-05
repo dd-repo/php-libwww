@@ -15,13 +15,14 @@ else
 $GLOBALS['CONFIG']['API_HOST'] 		= 'https://' . $conf['Main']['API_HOST'];
 $GLOBALS['CONFIG']['API_USERNAME']	= $conf['Main']['API_USERNAME'];
 $GLOBALS['CONFIG']['API_PASSWORD']	= $conf['Main']['API_TOKEN'];
-if( $conf['Main']['DEBUG'] == 'inactive' )
-	$GLOBALS['CONFIG']['DEBUG'] 		= false;
+$GLOBALS['CONFIG']['HOSTNAME']		= $conf['Main']['HOSTNAME'];
+$GLOBALS['CONFIG']['UPTIME_TOKEN']	= $conf['Main']['UPTIME_TOKEN'];
+$GLOBALS['CONFIG']['DEBUG'] 		= false;
 unset($conf);
 
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
-$GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login';
+$GLOBALS['CONFIG']['LOGIN_PAGE']		= '/?elogin';
 $GLOBALS['CONFIG']['DEFAULT_LANGUAGE']	= 'FR';
 
 $GLOBALS['CONFIG']['MAIL_TEMPLATE'] = "
