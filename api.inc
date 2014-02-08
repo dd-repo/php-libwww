@@ -15,7 +15,7 @@ class api
 		
 		$params['nohttperrorheader'] = true;
 
-		$request = array( 'http' => array( 'user_agent' => 'PHP/5.x (Olympe) API/1.0', 'method' => 'POST', 'timeout' => 10.0 ));
+		$request = array( 'http' => array( 'user_agent' => 'PHP/5.x (SYS) API/1.0', 'method' => 'POST', 'timeout' => 10.0 ));
 
 		if( is_array($file) )
 			$request['http']['header'] .= 'Content-Type: multipart/form-data, boundary=' . $boundary . "\r\n";
@@ -64,6 +64,7 @@ class api
 		{
 			$content .= "\r\n--{$boundary}\r\n" .
 						"Content-Disposition: form-data; name=\"{$key}\"\r\n" . 
+						"Content-Transfer-Encoding: binary\r\n" .
 						"\r\n" . 
 						$value;
 		}
@@ -71,6 +72,7 @@ class api
 		$content .= "\r\n--{$boundary}\r\n" .
 					"Content-Disposition: form-data; name=\"upload\"; filename=\"{$file['name']}\"\r\n" .
 					"Content-Type: {$file['type']}\r\n" . 
+					"Content-Transfer-Encoding: binary\r\n" .
 					"\r\n" .
 					$file['binary'];
 					
