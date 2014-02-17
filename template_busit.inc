@@ -2,6 +2,11 @@
 
 class template_busit extends template
 {
+	public function __construct()
+	{
+		$GLOBALS['lang']->import($GLOBALS['CONFIG']['CLASSPATH'] . '/template_busit.lang');
+	}
+	
 	public function error($e)
 	{
 		$e = $e.'';
@@ -31,8 +36,6 @@ class template_busit extends template
 	
 	public function top()
 	{
-		$GLOBALS['lang']->import($GLOBALS['CONFIG']['CLASSPATH'] . '/template_busit.lang');
-		
 		$top = "
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\">
@@ -141,6 +144,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
 		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
 		<meta name=\"HandheldFriendly\" content=\"true\">
+		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
@@ -175,7 +179,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 					if( ($menu_item['anonymous'] && !$logged) || (!$menu_item['anonymous'] && $a) )
 					{
 						$active = '';
-						if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+						if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_item['link'], '/')) === 0 )
+						//if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 							$active = "class=\"active\"";
 						
 						if( !$logged && !$menu_item['anonymous'] )
@@ -190,7 +195,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 										<ul>";
 									foreach( $menu_item['sub'] as $menu_subitem )
 									{
-										if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+										if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_subitem['link'], '/')) === 0 )
+										//if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 											$subactive = "class=\"active\"";
 						
 										$menu .= "
@@ -253,7 +259,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 				// check if the user has access to the target link
 				if( $GLOBALS['security']->hasAccess($menu_item['link']) )
 				{
-					if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+					if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_item['link'], '/')) === 0 )
+					//if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 						$active = $menu_item['link'];
 				}
 			}
@@ -274,7 +281,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 								
 						foreach( $menu_item['sub'] as $menu_subitem )
 						{
-							if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+							if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_subitem['link'], '/')) === 0 )
+							//if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 								$subactive = "class=\"active\"";
 						
 							$menu .= "
@@ -350,7 +358,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 					".(translator::getLanguage()=='FR'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=FR\">")."Fran&ccedil;ais".(translator::getLanguage()=='FR'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
 					".(translator::getLanguage()=='ES'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=ES\">")."Espa&ntilde;ol".(translator::getLanguage()=='ES'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
 				</p>
-				<p>{$GLOBALS['lang']['COPYRIGHT']}</p>
+				<p>{$GLOBALS['lang']['COPYRIGHT']} | {$GLOBALS['lang']['SYS']}</p>
 			</div>
 		</div>
 	</div>

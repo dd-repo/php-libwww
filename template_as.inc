@@ -2,6 +2,11 @@
 
 class template_as extends template
 {
+	public function __construct()
+	{
+		$GLOBALS['lang']->import($GLOBALS['CONFIG']['CLASSPATH'] . '/template_as.lang');
+	}
+	
 	public function error($e)
 	{
 		$e = $e.'';
@@ -31,8 +36,6 @@ class template_as extends template
 	
 	public function top()
 	{
-		$GLOBALS['lang']->import($GLOBALS['CONFIG']['CLASSPATH'] . '/template_as.lang');
-		
 		$top = "
 <!DOCTYPE html>
 <html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\">
@@ -114,7 +117,8 @@ class template_as extends template
 				if( ($menu_item['anonymous'] && !$logged) || (!$menu_item['anonymous'] && $a) )
 				{
 					$active = '';
-					if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+					if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_item['link'], '/')) === 0 )
+					//if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 						$active = "class=\"active\"";
 					
 					if( !$logged && !$menu_item['anonymous'] )
@@ -129,7 +133,8 @@ class template_as extends template
 									<ul>";
 								foreach( $menu_item['sub'] as $menu_subitem )
 								{
-									if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+									if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_subitem['link'], '/')) === 0 )
+									//if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 										$subactive = "class=\"active\"";
 					
 									$menu .= "
@@ -191,7 +196,8 @@ class template_as extends template
 				// check if the user has access to the target link
 				if( $GLOBALS['security']->hasAccess($menu_item['link']) )
 				{
-					if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+					if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_item['link'], '/')) === 0 )
+					//if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 						$active = $menu_item['link'];
 				}
 			}
@@ -212,7 +218,8 @@ class template_as extends template
 								
 						foreach( $menu_item['sub'] as $menu_subitem )
 						{
-							if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+							if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_subitem['link'], '/')) === 0 )
+							//if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
 								$subactive = "active";
 						
 							$menu .= "
@@ -293,7 +300,7 @@ class template_as extends template
 		</div>
 		<div id=\"copyright\">
 			<div class=\"container\">
-				{$GLOBALS['lang']['COPYRIGHT']}
+				<p>{$GLOBALS['lang']['COPYRIGHT']} | {$GLOBALS['lang']['SYS']}</p>
 			</div>
 		</div>
 	</div>
