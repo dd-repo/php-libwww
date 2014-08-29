@@ -366,7 +366,7 @@ $top .= "
 							<input type=\"text\" value=\"demo\" name=\"username\" readonly=\"true\" />
 						</fieldset>
 						<fieldset>
-							<input type=\"password\" value=\"demo\" name=\"password\" readonly=\"true\" />
+							<input type=\"password\" value=\"another service\" name=\"password\" readonly=\"true\" />
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"")."
 						</fieldset>
 						<fieldset>
