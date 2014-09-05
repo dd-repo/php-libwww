@@ -30,6 +30,9 @@ $tld = array_pop( $domain );
 $host = array_pop( $domain ) . '.' . $tld;
 $sub = array_shift( $domain );
 
+if( $domain[0] )
+	$subsub = $domain[0];
+
 switch( $host )
 {
 	case 'olympe.in':
@@ -47,14 +50,10 @@ switch( $host )
 		break;
 	case 'bus-it.com':
 	case 'bus-it.net':
-        if ($sub == 'apps')
+        if( $sub == 'apps' || $subsub == 'apps' )
 		    $GLOBALS['CONFIG']['SITE'] = 'apps';
         else
             $GLOBALS['CONFIG']['SITE'] = 'busit';
-        if( !preg_match("/^(apps|local|developers|www)/i", $sub) )
-        {
-            $GLOBALS['CONFIG']['INSTANCE'] = true;
-        }
 		break;
 	default:
 		if( $GLOBALS['CONFIG']['DEBUG'] )
