@@ -22,6 +22,14 @@ abstract class template
 		exit;
 	}
 	
+	public final function outputDark($content)
+	{
+		echo $this->topDark();
+		echo $content;
+		echo $this->bottomDark();
+		exit;
+	}
+	
 	public final static function redirect($link)
 	{
 		if( preg_match("/^https?:\\/\\/.+/i", $link) )
