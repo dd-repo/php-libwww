@@ -37,68 +37,25 @@ $GLOBALS['CONFIG']['MAIL_TEMPLATE'] = "
 	<head>
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 		<style type=\"text/css\">
-			html, body {
-				background-color: #f5f5f5;
-				font-family: BentonSans;
-				font-size: 14px;
-			}
-			a {
-				color: #005596;
-				text-decoration: none;
-			}
 			a:hover {
 				color: #0482e4;
 			}
 			p {
 				margin: 0 0 15px 0;
 			}
-			@font-face {
-				font-family: \"BentonSans\";
-				src: url('https://www.bus-it.com/busit/fonts/bentonsans-regular.eot');
-				src:
-					url('https://www.bus-it.com/busit/fonts/bentonsans-regular.ttf') format('truetype'),
-					url('https://www.bus-it.com/busit/fonts/bentonsans-regular.woff') format('woff'),
-					url('https://www.bus-it.com/busit/fonts/bentonsans-regular.eot?#iefix') format('embedded-opentype'),
-					url('https://www.bus-it.com/busit/fonts/bentonsans-regular.svg#BentonSans') format('svg');
-				font-weight: normal;
-				font-style: normal;
-			}
-			.core {
-				padding: 20px;
-			}
-			.header {
-				width: 90%;
-				height: 50px;
-				margin: 0 auto;
-			}
-			.content {
-				width: 90%;
-				margin: 0 auto;
-				padding: 10px;
-				background-color: #ffffff;
-				border: 1px solid #e5e5e5;
-				margin-bottom: 10px;
-			}
-			.footer {
-				width: 90%;
-				height: 50px;
-				margin: 0 auto;
-				color: #9f9f9f;
-				font-size: 12px;
-			}
 		</style>
 	</head>
 	
-	<body>
-		<div class=\"core\">
-			<div class=\"header\">
+	<body style=\"background-color: #f5f5f5; font-family: Arial; font-size: 14px;\">
+		<div style=\"padding: 20px;\">
+			<div style=\"width: 90%; height: 50px; margin: 0 auto;\">
 				<img src=\"https://www.bus-it.com/busit/images/logo-dark.png\" alt=\"Logo Busit\" style=\"width: 100px;\" />
 			</div>
-			<div class=\"content\">
+			<div style=\"width: 90%; margin: 0 auto; padding: 10px;	background-color: #ffffff; border: 1px solid #e5e5e5; margin-bottom: 10px;\">
 				{CONTENT}
 			</div>
-			<div class=\"footer\">
-				Copyright &copy; 2014 Busit - <a href=\"https://twitter.com/Bus_IT\" class=\"normal\">Twitter</a> - <a href=\"https://facebook.com/busit.net\" class=\"normal\">Facebook</a>
+			<div style=\"width: 90%; height: 50px;	margin: 0 auto;	color: #9f9f9f;	font-size: 12px;\">
+				Copyright &copy; 2014 Busit - <a style=\"color: #005596; text-decoration: none;\" href=\"https://twitter.com/Bus_IT\">Twitter</a> - <a style=\"color: #005596; text-decoration: none;\" href=\"https://facebook.com/busit.net\">Facebook</a>
 			</div>
 	</body>
 </html>
