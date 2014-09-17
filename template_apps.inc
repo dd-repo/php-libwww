@@ -165,7 +165,12 @@ class template_apps extends template
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-raty.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-jsplumb.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-sceditor.bbcode.js\"></script>
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>";
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>
+		<style>
+			* {
+				overflow: hidden !important;
+			}
+		</style>";
 	$top .= "
 	</head>
 	<body style=\"background-color: #303030; border-color: #303030; color: #818181; width: 100%;\">
