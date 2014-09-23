@@ -50,6 +50,7 @@ switch( $host )
 		break;
 	case 'bus-it.com':
 	case 'bus-it.net':
+	case 'busit.com':
         if( $sub == 'apps' || $subsub == 'apps' )
 		    $GLOBALS['CONFIG']['SITE'] = 'apps';
         else

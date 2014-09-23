@@ -49,7 +49,7 @@ $GLOBALS['CONFIG']['MAIL_TEMPLATE'] = "
 	<body style=\"background-color: #f5f5f5; font-family: Arial; font-size: 14px;\">
 		<div style=\"padding: 20px;\">
 			<div style=\"width: 90%; height: 50px; margin: 0 auto;\">
-				<img src=\"https://www.bus-it.com/busit/images/logo-dark.png\" alt=\"Logo Busit\" style=\"width: 100px;\" />
+				<img src=\"https://{$GLOBALS['CONFIG']['HOSTNAME']}/busit/images/logo-dark.png\" alt=\"Logo Busit\" style=\"width: 100px;\" />
 			</div>
 			<div style=\"width: 90%; margin: 0 auto; padding: 10px;	background-color: #ffffff; border: 1px solid #e5e5e5; margin-bottom: 10px;\">
 				{CONTENT}
