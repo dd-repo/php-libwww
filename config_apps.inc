@@ -24,6 +24,7 @@ $GLOBALS['CONFIG']['HOSTNAME']		= $conf['Main']['HOSTNAME'];
 $GLOBALS['CONFIG']['HOSTNAME_APPS']	= $conf['Main']['HOSTNAME_APPS'];
 $GLOBALS['CONFIG']['HOSTNAME_NODE']	= $conf['Main']['HOSTNAME_NODE'];
 $GLOBALS['CONFIG']['HOSTNAME_GATE']	= $conf['Main']['HOSTNAME_GATE'];
+$GLOBALS['CONFIG']['DEBUG'] 			= false;
 
 // Box
 $GLOBALS['CONFIG']['BOXNET_TOKEN']		= $conf['Apps']['BOXNET_TOKEN'];
@@ -42,7 +43,10 @@ $GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Apps']['GOOGLE_TOKEN'];
 $GLOBALS['CONFIG']['GOOGLE_SECRET']		= $conf['Apps']['GOOGLE_SECRET'];
 $GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
 
-$GLOBALS['CONFIG']['DEBUG'] 			= false;
+// Hangout
+$GLOBALS['CONFIG']['HANGOUT_USERNAME']	= $conf['Apps']['HANGOUT_USERNAME'];
+$GLOBALS['CONFIG']['HANGOUT_PASSWORD']	= $conf['Apps']['HANGOUT_PASSWORD'];
+
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login';
