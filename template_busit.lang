@@ -1,7 +1,7 @@
 [EN]
 TITLE = "Busit - The Universal Communication Platform"
 DESCRIPTION = "Create new interaction between your objects and your services, enjoy a more intelligent world!"
-COPYRIGHT = "&copy; 2014 <a href='https://www.bus-it.com'>Busit</a>"
+COPYRIGHT = "&copy; 2014 <a href='https://www.busit.com'>Busit</a>"
 SYS = "<a style='font-weight: bold;' href='http://www.sys.as'>SYS Network</a>"
 ABOUT = "About"
 TEAM = "Team"
@@ -52,7 +52,7 @@ conditions = "I agree to the <a href='/about/legal'>terms of use</a>."
 [FR]
 TITLE = "Busit - La Plateforme de Communication Universelle"
 DESCRIPTION = "Créez de nouvelles interactions entre vos objets et vos services, profitez d'un monde plus intelligent !"
-COPYRIGHT = "&copy; 2014 <a href='https://www.bus-it.com'>Busit</a>"
+COPYRIGHT = "&copy; 2014 <a href='https://www.busit.com'>Busit</a>"
 SYS = "<a style='font-weight: bold;' href='http://www.sys.as'>Réseau SYS</a>"
 ABOUT = "A propos"
 TEAM = "Equipe"
