@@ -45,6 +45,7 @@ class template_busit extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
+		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
