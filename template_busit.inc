@@ -363,10 +363,13 @@ $top .= "\">";
 			{
 				$self = api::send('self/system/user/select');
 				$self = $self[0];			
+				$logs = api::send('self/busit/instance/log/select', array('count'=>1, 'error'=>1));
+				$logs = $logs[0];
 				
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile-mob\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
@@ -449,6 +452,7 @@ $top .= "\">";
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />

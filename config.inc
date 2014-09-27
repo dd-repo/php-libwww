@@ -48,8 +48,6 @@ switch( $host )
 	case 'sys.com':
 		$GLOBALS['CONFIG']['SITE'] = 'sys';
 		break;
-	case 'bus-it.com':
-	case 'bus-it.net':
 	case 'busit.com':
         if( $sub == 'apps' || $subsub == 'apps' )
 		    $GLOBALS['CONFIG']['SITE'] = 'apps';
