@@ -42,14 +42,14 @@ $GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Apps']['GOOGLE_TOKEN'];
 $GLOBALS['CONFIG']['GOOGLE_SECRET']		= $conf['Apps']['GOOGLE_SECRET'];
 $GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
 
-$GLOBALS['CONFIG']['DEBUG'] 		= false;
-unset($conf);
-unset($file);
-unset($domain);
-
+$GLOBALS['CONFIG']['DEBUG'] 			= false;
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login';
 $GLOBALS['CONFIG']['DEFAULT_LANGUAGE']	= 'EN';
+
+unset($conf);
+unset($file);
+unset($domain);
 
 ?>

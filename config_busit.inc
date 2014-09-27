@@ -26,9 +26,6 @@ $GLOBALS['CONFIG']['HOSTNAME_NODE']	= $conf['Main']['HOSTNAME_NODE'];
 $GLOBALS['CONFIG']['HOSTNAME_GATE']	= $conf['Main']['HOSTNAME_GATE'];
 $GLOBALS['CONFIG']['UPTIME_TOKEN']	= $conf['Main']['UPTIME_TOKEN'];
 $GLOBALS['CONFIG']['DEBUG'] 		= false;
-unset($conf);
-unset($file);
-unset($domain);
 
 // Box
 $GLOBALS['CONFIG']['BOXNET_TOKEN']		= $conf['Apps']['BOXNET_TOKEN'];
@@ -51,6 +48,10 @@ $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login_action';
 $GLOBALS['CONFIG']['DEFAULT_LANGUAGE']	= 'EN';
+
+unset($conf);
+unset($file);
+unset($domain);
 
 $GLOBALS['CONFIG']['MAIL_TEMPLATE'] = "
 <html>
