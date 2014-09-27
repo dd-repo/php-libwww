@@ -25,8 +25,6 @@ $GLOBALS['CONFIG']['HOSTNAME_APPS']	= $conf['Main']['HOSTNAME_APPS'];
 $GLOBALS['CONFIG']['HOSTNAME_NODE']	= $conf['Main']['HOSTNAME_NODE'];
 $GLOBALS['CONFIG']['HOSTNAME_GATE']	= $conf['Main']['HOSTNAME_GATE'];
 
-// Apps
-
 // Box
 $GLOBALS['CONFIG']['BOXNET_TOKEN']		= $conf['Apps']['BOXNET_TOKEN'];
 $GLOBALS['CONFIG']['BOXNET_SECRET']		= $conf['Apps']['BOXNET_SECRET'];
@@ -36,7 +34,13 @@ $GLOBALS['CONFIG']['FACEBOOK_TOKEN']	= $conf['Apps']['FACEBOOK_TOKEN'];
 $GLOBALS['CONFIG']['FACEBOOK_SECRET']	= $conf['Apps']['FACEBOOK_SECRET'];
 
 // Twitter
+$GLOBALS['CONFIG']['TWITTER_TOKEN']		= $conf['Apps']['TWITTER_TOKEN'];
+$GLOBALS['CONFIG']['TWITTER_SECRET']	= $conf['Apps']['TWITTER_SECRET'];
 
+// Google
+$GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Apps']['GOOGLE_TOKEN'];
+$GLOBALS['CONFIG']['GOOGLE_SECRET']		= $conf['Apps']['GOOGLE_SECRET'];
+$GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
 
 $GLOBALS['CONFIG']['DEBUG'] 		= false;
 unset($conf);
