@@ -506,7 +506,7 @@ $bottom .= "\">
 					<a class=\"link\" href=\"https://www.facebook.com/busit.net\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/facebook.png\" alt=\"Facebook\" />
 					</a>
-					<a class=\"link\" href=\"https://google.com/+BusitFr\">
+					<a class=\"link\" href=\"https://plus.google.com/+BusitFr\" rel=\"publisher\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/google.png\" alt=\"Google+\" />
 					</a>
 					<a class=\"link\" href=\"https://www.linkedin.com/company/5121205\">
