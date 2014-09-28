@@ -364,7 +364,7 @@ $top .= "\">";
 			{
 				$self = api::send('self/system/user/select');
 				$self = $self[0];			
-				$logs = api::send('self/busit/instance/log/select', array('count'=>1, 'error'=>1));
+				$logs = api::send('self/busit/instance/log/select', array('read'=>0, 'count'=>1, 'error'=>1));
 				$logs = $logs[0];
 				
 				$menu .= "
