@@ -606,7 +606,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
@@ -623,7 +623,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
