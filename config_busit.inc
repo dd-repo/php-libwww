@@ -47,7 +47,7 @@ $GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
 // Hangout
 $GLOBALS['CONFIG']['HANGOUT_USERNAME']	= $conf['Apps']['HANGOUT_USERNAME'];
 $GLOBALS['CONFIG']['HANGOUT_PASSWORD']	= $conf['Apps']['HANGOUT_PASSWORD'];
-print_r($GLOBALS['CONFIG']);
+
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login_action';
