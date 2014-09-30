@@ -30,8 +30,10 @@ $tld = array_pop( $domain );
 $host = array_pop( $domain ) . '.' . $tld;
 $sub = array_shift( $domain );
 
-if( $domain[0] )
+if( is_array($domain) && isset($domain[0]) )
 	$subsub = $domain[0];
+else
+	$subsub = '';
 
 switch( $host )
 {
