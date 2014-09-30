@@ -45,6 +45,7 @@ class template_busit extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
+		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
@@ -363,10 +364,13 @@ $top .= "\">";
 			{
 				$self = api::send('self/system/user/select');
 				$self = $self[0];			
+				$logs = api::send('self/busit/instance/log/select', array('read'=>0, 'count'=>1, 'error'=>1));
+				$logs = $logs[0];
 				
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile-mob\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
@@ -449,6 +453,7 @@ $top .= "\">";
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
@@ -501,7 +506,7 @@ $bottom .= "\">
 					<a class=\"link\" href=\"https://www.facebook.com/busit.net\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/facebook.png\" alt=\"Facebook\" />
 					</a>
-					<a class=\"link\" href=\"https://google.com/+BusitFr\">
+					<a class=\"link\" href=\"https://plus.google.com/+BusitFr\" rel=\"publisher\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/google.png\" alt=\"Google+\" />
 					</a>
 					<a class=\"link\" href=\"https://www.linkedin.com/company/5121205\">
@@ -601,7 +606,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
@@ -618,7 +623,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />

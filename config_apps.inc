@@ -19,16 +19,41 @@ else if( file_exists( '../www.ini' ) )
 $GLOBALS['CONFIG']['API_HOST'] 		= 'https://' . $conf['Main']['API_HOST'];
 $GLOBALS['CONFIG']['API_USERNAME']	= $conf['Main']['API_USERNAME'];
 $GLOBALS['CONFIG']['API_PASSWORD']	= $conf['Main']['API_TOKEN'];
+$GLOBALS['CONFIG']['DOMAIN']		= $conf['Main']['DOMAIN'];
 $GLOBALS['CONFIG']['HOSTNAME']		= $conf['Main']['HOSTNAME'];
 $GLOBALS['CONFIG']['HOSTNAME_APPS']	= $conf['Main']['HOSTNAME_APPS'];
-$GLOBALS['CONFIG']['DEBUG'] 		= false;
-unset($conf);
-unset($file);
-unset($domain);
+$GLOBALS['CONFIG']['HOSTNAME_NODE']	= $conf['Main']['HOSTNAME_NODE'];
+$GLOBALS['CONFIG']['HOSTNAME_GATE']	= $conf['Main']['HOSTNAME_GATE'];
+$GLOBALS['CONFIG']['DEBUG'] 			= false;
+
+// Box
+$GLOBALS['CONFIG']['BOXNET_TOKEN']		= $conf['Apps']['BOXNET_TOKEN'];
+$GLOBALS['CONFIG']['BOXNET_SECRET']		= $conf['Apps']['BOXNET_SECRET'];
+
+// Facebook
+$GLOBALS['CONFIG']['FACEBOOK_TOKEN']	= $conf['Apps']['FACEBOOK_TOKEN'];
+$GLOBALS['CONFIG']['FACEBOOK_SECRET']	= $conf['Apps']['FACEBOOK_SECRET'];
+
+// Twitter
+$GLOBALS['CONFIG']['TWITTER_TOKEN']		= $conf['Apps']['TWITTER_TOKEN'];
+$GLOBALS['CONFIG']['TWITTER_SECRET']	= $conf['Apps']['TWITTER_SECRET'];
+
+// Google
+$GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Apps']['GOOGLE_TOKEN'];
+$GLOBALS['CONFIG']['GOOGLE_SECRET']		= $conf['Apps']['GOOGLE_SECRET'];
+$GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
+
+// Hangout
+$GLOBALS['CONFIG']['HANGOUT_USERNAME']	= $conf['Apps']['HANGOUT_USERNAME'];
+$GLOBALS['CONFIG']['HANGOUT_PASSWORD']	= $conf['Apps']['HANGOUT_PASSWORD'];
 
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login';
 $GLOBALS['CONFIG']['DEFAULT_LANGUAGE']	= 'EN';
+
+unset($conf);
+unset($file);
+unset($domain);
 
 ?>
