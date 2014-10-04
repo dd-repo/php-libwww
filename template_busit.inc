@@ -68,8 +68,10 @@ class template_busit extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>";
 
-if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false )
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false  )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin/space/view') !== false  )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view_admin.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'showcase') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'learn') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'setup') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'cases') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/showcase.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
@@ -78,6 +80,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/store.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/panel.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/admin.js\"></script>";
 	
 $top .= "
 	</head>
