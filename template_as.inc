@@ -85,7 +85,7 @@ $top .= "
 		<div class=\"header\">
 			<div class=\"content\">
 				<div class=\"logo\">
-					<a href=\"/\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo.png\" alt=\"logo\" /></a>
+					<a href=\"/\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo.png\" alt=\"logo\" style=\"width: 80px;\" /></a>
 				</div>";
 				
 		$top .= $this->getMainMenu();
