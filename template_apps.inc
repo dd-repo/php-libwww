@@ -51,13 +51,24 @@ class template_apps extends template
 		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/busit/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/busit/css/main.css\" type=\"text/css\" />
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-1.9.1.js\"></script>
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-1.10.3.custom.js\"></script>
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-touch-punch.js\"></script>";
+		<link rel=\"stylesheet\" href=\"/busit/css/font-awesome.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery/jquery-ui.css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery/default.css\" />
+		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-2.1.1.min.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-globalize.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-touch-punch.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-timepicker.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-chartjs.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-raty.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-jsplumb.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-sceditor.bbcode.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>";
 	$top .= "
 	</head>
 	<body>
-		<div id=\"apps\" style=\"width: 680px; margin: 0 auto;\">
+		<div id=\"apps\" style=\"width: 90%; margin: 0 auto;\">
 			";
 		
 		return $top;
@@ -93,16 +104,20 @@ class template_apps extends template
 		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/busit/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/busit/css/main.css\" type=\"text/css\" />
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-1.9.1.js\"></script>
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-1.10.3.custom.js\"></script>
+		<link rel=\"stylesheet\" href=\"/busit/css/font-awesome.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery-1.10.4/jquery-ui-1.10.4.custom.min.css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery-1.10.4/default.css\" />
+		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-2.1.1.min.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-globalize.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-1.10.4.custom.min.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-touch-punch.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-timepicker.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-chartjs.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-raty.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-jsplumb.js\"></script>
 		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-sceditor.bbcode.js\"></script>
-		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>";
-	$top .= "
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>
 	</head>
 	<body>
 			";
@@ -114,6 +129,62 @@ class template_apps extends template
 	{
 		$bottom = "";
 		$bottom .= "	
+	</body>
+</html>";
+		
+		return $bottom;
+	}
+	
+		public function topDark()
+	{
+		$top = "
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\">
+	<head>
+		<title>{$GLOBALS['lang']['TITLE']}</title>
+		<meta name=\"description\" content=\"{$GLOBALS['lang']['DESCRIPTION']}\" />
+		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+		<meta http-equiv=\"Cache-control\" content=\"no-cache\">
+		<meta http-equiv=\"Expires\" content=\"-1\">
+		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
+		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
+		<meta name=\"HandheldFriendly\" content=\"true\">
+		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
+		<link rel=\"shortcut icon\" href=\"/busit/images/favicon.ico\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/main.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/font-awesome.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery/jquery-ui.css\" />
+		<link rel=\"stylesheet\" href=\"/busit/css/jquery/default.css\" />
+		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-2.1.1.min.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-globalize.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-touch-punch.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-ui-timepicker.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-chartjs.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-raty.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-jsplumb.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-sceditor.bbcode.js\"></script>
+		<script type=\"text/javascript\" src=\"/busit/js/jquery/jquery-toggles.js\"></script>
+		<style>
+			* {
+				overflow: hidden !important;
+			}
+		</style>";
+	$top .= "
+	</head>
+	<body style=\"background-color: #303030; border-color: #303030; color: #818181; width: 100%;\">
+		<div id=\"apps\" style=\"width: 100; margin: 0 auto; color: #818181;\">
+			";
+		
+		return $top;
+	}
+	
+	public function bottomDark()
+	{
+		$bottom = "";
+		$bottom .= "	
+		</div>
 	</body>
 </html>";
 		

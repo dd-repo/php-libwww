@@ -3,22 +3,57 @@
 $GLOBALS['CONFIG']['DEBUG'] 		= true;
 $GLOBALS['CONFIG']['THROW_ERRORS'] 	= (E_ALL | E_STRICT) & ~E_NOTICE;
 
-if( $_SERVER["HTTP_HOST"] == 'localhost' || $_SERVER["HTTP_HOST"] == '127.0.0.1' || $_SERVER["HTTP_HOST"] == 'local.apps.bus-it.com' )
-	$conf = parse_ini_file('../www.ini', true);
-else
-	$conf = parse_ini_file('/dns/com/bus-it/etc/settings/www.ini', true);
+$domain = explode( '.', $_SERVER["HTTP_HOST"] );
+$file = '/dns/' . array_pop( $domain ) . '/' . array_pop( $domain ) . '/etc/settings' . '/' . implode( '.', $domain ) . '.ini';
+if( file_exists( $file ) )
+{
+    $conf = parse_ini_file( $file, true );
+    $conf['type'] = 'file';
+}
+else if( file_exists( '../www.ini' ) )
+{
+    $conf = parse_ini_file('../www.ini', true);
+    $conf['type'] = 'file';
+}
 
 $GLOBALS['CONFIG']['API_HOST'] 		= 'https://' . $conf['Main']['API_HOST'];
 $GLOBALS['CONFIG']['API_USERNAME']	= $conf['Main']['API_USERNAME'];
 $GLOBALS['CONFIG']['API_PASSWORD']	= $conf['Main']['API_TOKEN'];
+$GLOBALS['CONFIG']['DOMAIN']		= $conf['Main']['DOMAIN'];
 $GLOBALS['CONFIG']['HOSTNAME']		= $conf['Main']['HOSTNAME'];
 $GLOBALS['CONFIG']['HOSTNAME_APPS']	= $conf['Main']['HOSTNAME_APPS'];
-$GLOBALS['CONFIG']['DEBUG'] 		= false;
-unset($conf);
+$GLOBALS['CONFIG']['HOSTNAME_NODE']	= $conf['Main']['HOSTNAME_NODE'];
+$GLOBALS['CONFIG']['HOSTNAME_GATE']	= $conf['Main']['HOSTNAME_GATE'];
+$GLOBALS['CONFIG']['DEBUG'] 			= false;
+
+// Box
+$GLOBALS['CONFIG']['BOXNET_TOKEN']		= $conf['Apps']['BOXNET_TOKEN'];
+$GLOBALS['CONFIG']['BOXNET_SECRET']		= $conf['Apps']['BOXNET_SECRET'];
+
+// Facebook
+$GLOBALS['CONFIG']['FACEBOOK_TOKEN']	= $conf['Apps']['FACEBOOK_TOKEN'];
+$GLOBALS['CONFIG']['FACEBOOK_SECRET']	= $conf['Apps']['FACEBOOK_SECRET'];
+
+// Twitter
+$GLOBALS['CONFIG']['TWITTER_TOKEN']		= $conf['Apps']['TWITTER_TOKEN'];
+$GLOBALS['CONFIG']['TWITTER_SECRET']	= $conf['Apps']['TWITTER_SECRET'];
+
+// Google
+$GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Apps']['GOOGLE_TOKEN'];
+$GLOBALS['CONFIG']['GOOGLE_SECRET']		= $conf['Apps']['GOOGLE_SECRET'];
+$GLOBALS['CONFIG']['GOOGLE_KEY']		= $conf['Apps']['GOOGLE_KEY'];
+
+// Hangout
+$GLOBALS['CONFIG']['HANGOUT_USERNAME']	= $conf['Apps']['HANGOUT_USERNAME'];
+$GLOBALS['CONFIG']['HANGOUT_PASSWORD']	= $conf['Apps']['HANGOUT_PASSWORD'];
 
 $GLOBALS['CONFIG']['DEFAULT_PAGE']		= '/default';
 $GLOBALS['CONFIG']['PANEL_PAGE']		= '/panel';
 $GLOBALS['CONFIG']['LOGIN_PAGE']		= '/login';
 $GLOBALS['CONFIG']['DEFAULT_LANGUAGE']	= 'EN';
+
+unset($conf);
+unset($file);
+unset($domain);
 
 ?>

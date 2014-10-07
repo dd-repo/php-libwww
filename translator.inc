@@ -17,6 +17,14 @@ class translator implements ArrayAccess
 		{
 			if( substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'fr' )
 				self::setLanguage('FR');
+			else if( substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'es' )
+				self::setLanguage('ES');
+			else if( substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'en' )
+				self::setLanguage('EN');
+			else if( substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'de' )
+				self::setLanguage('DE');
+			else if( substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) == 'it' )
+				self::setLanguage('IT');
 			else
 				self::setLanguage($GLOBALS['CONFIG']['DEFAULT_LANGUAGE']);
 		}

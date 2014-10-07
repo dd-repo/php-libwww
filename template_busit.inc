@@ -43,19 +43,19 @@ class template_busit extends template
 		<title>{$GLOBALS['lang']['TITLE']}</title>
 		<meta name=\"description\" content=\"{$GLOBALS['lang']['DESCRIPTION']}\" />
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
-		<meta http-equiv=\"Cache-control\" content=\"no-cache\">
-		<meta http-equiv=\"Expires\" content=\"-1\">
-		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
-		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
-		<meta name=\"HandheldFriendly\" content=\"true\">
-		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
+		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
+		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
+		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
-		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/font-awesome.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui.css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/default.css\" />
 		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
-		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-1.9.1.js\"></script>
-		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui-1.10.3.custom.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-2.1.1.min.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-globalize.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui-touch-punch.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui-timepicker.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-chartjs.js\"></script>
@@ -63,61 +63,79 @@ class template_busit extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-jsplumb.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-sceditor.bbcode.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-toggles.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ddslick.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/prism.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>";
 
-if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false )
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false  )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view.js\"></script>";
-if( strstr($GLOBALS['CONFIG']['PAGE'], 'showcase') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'learn') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'setup') !== false )
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin/space/view') !== false  )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view_admin.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'showcase') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'learn') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'setup') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'cases') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/showcase.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/doc.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/store.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/panel.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/admin.js\"></script>";
 	
-	$top .= "
+$top .= "
 	</head>
 	<body>
-	<div id=\"fb-root\"></div>
-	<script>
-		(function(d, s, id){
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = \"//connect.facebook.net/en_US/all.js#xfbml=1&appId=233857746673934\";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-	<div id=\"wrapper\" ".((strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false && strstr($GLOBALS['CONFIG']['PAGE'], 'connector') === false)?"style=\"background-color: #e5e5e5;\"":"").">
+        <div id=\"wrapper\" style=\"";
+        if( strstr($GLOBALS['CONFIG']['PAGE'], 'status') !== false )
+                $top .= "background-color: #f0f0f0; ";
+        else if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false && strstr($GLOBALS['CONFIG']['PAGE'], 'connector') === false )
+                $top .= "background-color: #f0f0f0; ";
+        else if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+                $top .= "background-color: #f0f0f0;";
+        else if( strstr($GLOBALS['CONFIG']['PAGE'], 'case') !== false )
+                $top .= "background-color: #f0f0f0;";
+        else if( strstr($GLOBALS['CONFIG']['PAGE'], 'companies') !== false )
+                $top .= "background-color: #f0f0f0;";
+				
+		$top .= "\">
+		<div id=\"success\"></div>
 		<div id=\"loading\"></div>
-		<div id=\"overlay\"></div>
-		<div class=\"header\">
-			<div class=\"content\">";
-		
-		if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') === false )
-		{
-			$top .="
+		<div id=\"overlay\"></div>";
+	
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') != 42 )
+{
+	$top .= "
+		<header>
+			<div class=\"content\">
 				<div class=\"logo\">
 					<a href=\"/\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo.png\" alt=\"logo\" /></a>
 				</div>
-			";
-		}
-		else
-		{
-			$top .= "
-				<div class=\"logo-big\">
-					<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo-big.png\" alt=\"logo\" />
-				</div>
-			";
-		}
-		
+	";
+	
 	if( !$GLOBALS['CONFIG']['INSTANCE'] )	
 		$top .= $this->getMainMenu();
 			
-		$top .= "
+	$top .= "
 			</div>
-		</div>
-		<div class=\"core\" id=\"core\" style=\"".(strstr($GLOBALS['CONFIG']['PAGE'], 'status')!==false?"background-color: #f0f0f0;":"")."\">";
+		</header>
+	";
+}
+
+$top .= "
+		<div class=\"core\" id=\"core\" style=\""; 
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'status') !== false )
+	$top .= "background-color: #f0f0f0; ";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+	$top .= "background-color: #f0f0f0;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false && strstr($GLOBALS['CONFIG']['PAGE'], 'connector') === false )
+	$top .= "background-color: #f0f0f0;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'case') !== false )
+	$top .= "background-color: #f0f0f0;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'companies') !== false )
+	$top .= "background-color: #f0f0f0;";
+		
+$top .= "\">";
 	
 		$logged = $GLOBALS['security']->hasAccess('/panel');
 		$top .= $this->getSubMenu();
@@ -144,29 +162,34 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
-		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/font-awesome.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui.css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/default.css\" />
 		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
-		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-1.9.1.js\"></script>
-		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui-1.10.3.custom.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-2.1.1.min.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-globalize.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-jsplumb.js\"></script>
+		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/showcase.js\"></script>
 	</head>
-	<body>
-		<div style=\"padding: 20px;\">";
+	<body style=\"padding-top: 20px;\">
+		";
 		
 		return $top;
 	}
 	
 	private function getMainMenu()
 	{
-		if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') === false )
+		if( strstr($GLOBALS['CONFIG']['PAGE'], 'default') != 42 )
 		{
 			$menu_file = $GLOBALS['CONFIG']['ROOT'].$GLOBALS['CONFIG']['SITE'].'/mainmenu.inc';
 			if( file_exists($menu_file) )
 			{
 				$menu_data = include_once($menu_file);
 				$menu = "
-				<div class=\"menu\">
-						<ul>";
+				<span class=\"nav-mobile\" id=\"nav-mobile\"><a href=\"#\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/nav.png\" /></a></span>
+				<nav id=\"navigation\">
+					<ul id=\"mainmenu\">";
 
 				$logged = $GLOBALS['security']->hasAccess('/panel');
 				foreach( $menu_data as $menu_item )
@@ -188,7 +211,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 							{
 								$menu .= "
 									<li class=\"{$menu_item['text']}\">
-										<a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a>
+										".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a>
 										<ul>";
 									foreach( $menu_item['sub'] as $menu_subitem )
 									{
@@ -197,7 +220,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 											$subactive = "class=\"active\"";
 						
 										$menu .= "
-												<li class=\"{$menu_subitem['text']}\"><a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\" onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>{$GLOBALS['lang'][$menu_subitem['text']]}</a></li>";
+												<li class=\"{$menu_subitem['text']}\">".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\" onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>{$GLOBALS['lang'][$menu_subitem['text']]}</a></li>";
 									}
 									
 									$menu .= "
@@ -207,15 +230,64 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 							else
 							{
 								$menu .= "
-							<li class=\"{$menu_item['text']}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a></li>";
+						<li class=\"{$menu_item['text']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a></li>";
 							}
 						}
 					}
 				}
 				
 				$menu .= "
-						</ul>
-					</div>
+					</ul>
+					<ul id=\"mainmenu-mob\" style=\"display: none;\">";
+
+				$logged = $GLOBALS['security']->hasAccess('/panel');
+				foreach( $menu_data as $menu_item )
+				{
+					// check if the user has access to the target link
+					$a = $GLOBALS['security']->hasAccess($menu_item['link']);
+					if( ($menu_item['anonymous'] && !$logged) || (!$menu_item['anonymous'] && $a) )
+					{
+						$active = '';
+						if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_item['link'], '/')) === 0 )
+						//if( preg_match('!^'.rtrim($menu_item['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+							$active = "class=\"active\"";
+						
+						if( !$logged && !$menu_item['anonymous'] )
+							continue;
+						else
+						{
+							if( is_array($menu_item['sub']) )
+							{
+								$menu .= "
+									<li class=\"{$menu_item['text']}\">
+										".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a>
+										<ul>";
+									foreach( $menu_item['sub'] as $menu_subitem )
+									{
+										if( strpos(rtrim($GLOBALS['CONFIG']['PAGE'], '/'), rtrim($menu_subitem['link'], '/')) === 0 )
+										//if( preg_match('!^'.rtrim($menu_subitem['link'], '/').'(/index)?$!', rtrim($GLOBALS['CONFIG']['PAGE'], '/')) )
+											$subactive = "class=\"active\"";
+						
+										$menu .= "
+												<li class=\"{$menu_subitem['text']}\">".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\" onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>{$GLOBALS['lang'][$menu_subitem['text']]}</a></li>";
+									}
+									
+									$menu .= "
+										</ul>
+									</li>";
+							}
+							else
+							{
+								$menu .= "
+						<li class=\"{$menu_item['text']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a></li>";
+							}
+						}
+					}
+				}
+				
+				$menu .= "
+					</ul>
+				</nav>
 				";
 				
 				return $menu;
@@ -227,6 +299,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	
 	private function getSubMenu()
 	{
+				
 		$menu_file = null;
 		$path = $GLOBALS['CONFIG']['PATH'];
 		while( strlen($path) > strlen($GLOBALS['CONFIG']['ROOT'])-2 )
@@ -244,7 +317,76 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 		{
 			$menu_data = include_once($menu_file);
 			$menu = "
-					<div class=\"menu-fixed\">
+					<div class=\"menu-fixed-mob\" id=\"menu-fixed-mob\">
+						<a style=\"float: left;\" href=\"#\" id=\"submenu-mobile\">{$GLOBALS['lang']['MENUMOB']}</a>
+						<ul style=\"display: none;\" id=\"submenu-nav-mob\">";
+		
+			foreach( $menu_data as $menu_item )
+			{
+				if( $GLOBALS['security']->hasAccess($menu_item['link']) )
+				{
+					if( is_array($menu_item['sub']) )
+					{
+						$menu .= "<li class=\"sub ".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\">".($menu_item['icon']?"<a href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}><i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>&nbsp;&nbsp;":"")." ".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a>
+							<ul>";
+								
+						foreach( $menu_item['sub'] as $menu_subitem )
+						{						
+							$menu .= "
+								<li class=\"{$menu_subitem['text']}\"><a href=\"{$menu_subitem['link']}\"  onclick=\"{$menu_subitem['onclick']}\" title=\"\">".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']} fa-fw\"></i>&nbsp;&nbsp;":"")." ".($GLOBALS['lang'][$menu_subitem['text']]?"{$GLOBALS['lang'][$menu_subitem['text']]}":"{$menu_subitem['text']}")."</a></li>";
+						}
+									
+						$menu .= "
+							</ul>
+						</li>";
+					}
+					else
+					{
+						$menu .= "
+						<li class=\"{$menu_item['text']}\"><a href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']} fa-fw\"></i>&nbsp;&nbsp;":"")." ".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
+					";
+					}
+				}
+			}
+			
+			$menu .= "
+						</ul>	
+			";
+
+			if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
+			{				
+				$menu .= "
+						<form style=\"float: right; margin-right: 10px;\" id=\"searchform-mob\" autocomplete=\"off\"><input type=\"hidden\" name=\"connectorid-mob\" value=\"\" id=\"connectorid-mob\" /><input type=\"submit\" style=\"display: none;\" /><input style=\"width: 250px;\" type=\"text\" id=\"search-mob\" placeholder=\"{$GLOBALS['lang']['search']}\" /></form>";
+			}
+			if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
+			{
+				$menu .= "
+						<form style=\"float: right; margin-right: 10px;\" id=\"searchform-mob\" action=\"/doc/".(strstr($GLOBALS['CONFIG']['PAGE'], 'developers')!==false?"developers/":"")."search\" method=\"get\"><input type=\"submit\" style=\"display: none;\" /><input name=\"search\" style=\"width: 250px;\" type=\"text\" id=\"search-mob\" placeholder=\"{$GLOBALS['lang']['search']}\" /></form>";
+			}
+
+			if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
+			{
+				$self = api::send('self/system/user/select');
+				$self = $self[0];			
+				$logs = api::send('self/busit/instance/log/select', array('read'=>0, 'count'=>1, 'error'=>1));
+				$logs = $logs[0];
+				
+				$menu .= "
+					<div style=\"position: relative; float: right;\">
+						<a href=\"#\" id=\"profile-mob\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
+							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
+							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
+							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
+						</a>
+						<div id=\"profile-menu-mob\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/loading_dark_small.gif\" alt=\"\" class=\"loader\" style=\"margin-top: -20px;\" /></div>
+					</div>
+					";
+			}
+			
+			$menu .= "
+					</div>
+					<div class=\"menu-fixed\" id=\"menu-fixed\">
 						<div class=\"container\">
 							<ul id=\"menu\">
 			";
@@ -273,7 +415,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 
 					if( is_array($menu_item['sub']) )
 					{
-						$menu .= "<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"sub ".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a>
+						$menu .= "<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"sub ".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>&nbsp;&nbsp;":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a>
 							<ul>";
 								
 						foreach( $menu_item['sub'] as $menu_subitem )
@@ -283,7 +425,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 								$subactive = "class=\"active\"";
 						
 							$menu .= "
-								<li class=\"{$menu_subitem['text']}\"><a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\"  onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>".($GLOBALS['lang'][$menu_subitem['text']]?"{$GLOBALS['lang'][$menu_subitem['text']]}":"{$menu_subitem['text']}")."</a></li>";
+								<li class=\"{$menu_subitem['text']}\"><a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\"  onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']}-o fa-fw\"></i>":"")." ".($GLOBALS['lang'][$menu_subitem['text']]?"{$GLOBALS['lang'][$menu_subitem['text']]}":"{$menu_subitem['text']}")."</a></li>";
 						}
 									
 						$menu .= "
@@ -293,7 +435,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 					else
 					{
 						$menu .= "
-									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']}\"><a {$a} id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
+									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']}\"><a {$a} id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']} fa-fw\"></i>&nbsp;&nbsp;":"")." ".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
 						";
 					}
 				}
@@ -302,15 +444,27 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 			if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 			{
 				$menu .= "
-									<li id=\"search-li\" class=\"search\"><form id=\"searchform\"><input type=\"submit\" style=\"display: none;\" /><input class=\"auto\" style=\"width: 220px; font-size: 15px;\" type=\"text\" id=\"search\" value=\"{$GLOBALS['lang']['search']}\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['search']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['search']}' : this.value; this.value=='{$GLOBALS['lang']['search']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" /></form></li>";
+									<li id=\"search-li\" class=\"search\"><form id=\"searchform\" autocomplete=\"off\"><input type=\"hidden\" name=\"connectorid\" value=\"\" id=\"connectorid\" /><input type=\"submit\" style=\"display: none;\" /><input style=\"width: 250px;\" type=\"text\" id=\"search\" placeholder=\"{$GLOBALS['lang']['search']}\" /></form></li>";
 			}
-
+			if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
+			{
+				$menu .= "
+									<li id=\"search-li\" class=\"search\"><form id=\"searchform\" action=\"/doc/".(strstr($GLOBALS['CONFIG']['PAGE'], 'developers')!==false?"developers/":"")."search\" method=\"get\"><input type=\"submit\" style=\"display: none;\" /><input name=\"search\" style=\"width: 250px;\" type=\"text\" id=\"search\" placeholder=\"{$GLOBALS['lang']['search']}\" /></form></li>";
+			}
+			
 			if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
 			{
-				$quota = api::send('self/system/quota/user/select');
-				$quota = $quota[0];
 				$menu .= "
-									<li style=\"float: right;\"><a href=\"/panel/credits\" id=\"credits\">{$GLOBALS['lang']['left']} {$quota['quota_used']} BIC</a></li>";
+					<div style=\"position: relative; float: right;\">
+						<a href=\"#\" id=\"profile\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
+							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
+							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
+							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
+						</a>
+						<div id=\"profile-menu\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/loading_dark_small.gif\" alt=\"\" class=\"loader\" style=\"margin-top: -20px;\" /></div>
+					</div>
+					";
 			}
 			
 			$menu .= "
@@ -335,7 +489,19 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 		$bottom .= $this->getObjects();
 		
 		$bottom .= "
-		<div id=\"footer\" class=\"footer\">
+			<div id=\"footer\" class=\"footer\" style=\"";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'status') !== false )
+        $bottom .= "background-color: #ffffff; ";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false && strstr($GLOBALS['CONFIG']['PAGE'], 'connector') === false )
+        $bottom .= "background-color: #ffffff;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+        $bottom .= "background-color: #ffffff;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'case') !== false )
+        $bottom .= "background-color: #ffffff;";
+else if( strstr($GLOBALS['CONFIG']['PAGE'], 'companies') !== false )
+        $bottom .= "background-color: #ffffff;";
+
+$bottom .= "\">
 			<div class=\"content\">
 				<div class=\"social\">
 					<a class=\"link\" href=\"https://twitter.com/Bus_IT\">
@@ -344,7 +510,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 					<a class=\"link\" href=\"https://www.facebook.com/busit.net\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/facebook.png\" alt=\"Facebook\" />
 					</a>
-					<a class=\"link\" href=\"https://google.com/+BusitFr\">
+					<a class=\"link\" href=\"https://plus.google.com/+BusitFr\" rel=\"publisher\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/google.png\" alt=\"Google+\" />
 					</a>
 					<a class=\"link\" href=\"https://www.linkedin.com/company/5121205\">
@@ -358,6 +524,7 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 				<br />
 				<ul>
 					<li><a href=\"/about\">{$GLOBALS['lang']['ABOUT']}</a></li>
+					<li><a href=\"/about/press\">{$GLOBALS['lang']['PRESS']}</a></li>
 					<li><a href=\"/about/contact\">{$GLOBALS['lang']['CONTACT']}</a></li>
 					<li><a href=\"/about/team\">{$GLOBALS['lang']['TEAM']}</a></li>
 					<li><a href=\"/doc\">{$GLOBALS['lang']['HELP']}</a></li>
@@ -369,28 +536,53 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	";
 	$request = str_replace(array('?lang='.translator::getLanguage(), '&lang='.translator::getLanguage()) , array('', ''), $_SERVER['REQUEST_URI']);
 
-	$bottom .= "	
+	$bottom .= "
 					".(translator::getLanguage()=='EN'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=EN\">")."English".(translator::getLanguage()=='EN'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
 					".(translator::getLanguage()=='FR'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=FR\">")."Fran&ccedil;ais".(translator::getLanguage()=='FR'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-					".(translator::getLanguage()=='ES'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=ES\">")."Espa&ntilde;ol".(translator::getLanguage()=='ES'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
 				</p>
 				<p>{$GLOBALS['lang']['COPYRIGHT']} | {$GLOBALS['lang']['SYS']}</p>
 			</div>
 		</div>
 	</div>
 	<script type=\"text/javascript\">
-	  var _paq = _paq || [];
-	  _paq.push([\"trackPageView\"]);
-	  _paq.push([\"enableLinkTracking\"]);
+		var _paq = _paq || [];
+		_paq.push([\"trackPageView\"]);
+		_paq.push([\"enableLinkTracking\"]);
 
-	  (function() {
-		var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://stats.anotherservice.com/\";
-		_paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);
-		_paq.push([\"setSiteId\", \"9\"]);
-		var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
-		g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
-	  })();
+		(function() {
+			var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://stats.anotherservice.com/\";
+			_paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);
+			_paq.push([\"setSiteId\", \"9\"]);
+			var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
+			g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
+		})();
+	  
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-54136170-1', 'auto');
+		ga('require', 'displayfeatures');
+		ga('send', 'pageview');
 	</script>
+	
+	<script>(function() {
+		var _fbq = window._fbq || (window._fbq = []);
+		if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+		}
+		_fbq.push(['addPixelId', '312138485636142']);
+		})();
+		window._fbq = window._fbq || [];
+		window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+	<noscript><img height=\"1\" width=\"1\" alt=\"\" style=\"display:none\" src=\"https://www.facebook.com/tr?id=312138485636142&amp;ev=PixelInitialized\" /></noscript>
+
 	</body>
 </html>";
 		
@@ -400,7 +592,6 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	public function bottomSimple()
 	{
 		$bottom = "
-		</div>
 	</body>
 </html>";
 		
@@ -413,244 +604,218 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 			$_SESSION['ANTISPAM'] = md5(time().'busit');
 
 		$objects = "
-			<div id=\"login\" class=\"floatingdialog\">
-				<div class=\"form-small\">
-					<h3 class=\"center\">{$GLOBALS['lang']['login']}</h3>
-					<form action=\"/login_action\" method=\"post\" class=\"center\">
-						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
-						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-						</fieldset>
-						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>
-							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['register']}</span>")."
-						</fieldset>						
-						<fieldset>
-							<input type=\"checkbox\" name=\"chbox\" />
-							<label for=\"remember\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
-						</fieldset>
-						<fieldset>
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
-						</fieldset>													
-					</form>
-					<div class=\"clearfix\">&nbsp;</div>
-				</div>
+			<div id=\"login\" class=\"floatingdialog\" autocomplete=\"off\">
+				<h3 class=\"center\">{$GLOBALS['lang']['login']}</h3>
+				<form action=\"/login_action\" method=\"post\" class=\"center\">
+					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
+					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
+					<fieldset>
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
+					</fieldset>
+					<fieldset>
+						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'login'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"")."
+					</fieldset>						
+					<fieldset>
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
+					</fieldset>							
+				</form>
 			</div>
-			<div id=\"login-base\" style=\"display: none;\" class=\"floatingdialog\">
-				<div class=\"form-small\">
-					<h3 class=\"center\">{$GLOBALS['lang']['login']}</h3>
-					<form action=\"/login_action\" method=\"post\" class=\"center\">
-						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
-						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-						</fieldset>
-						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>
-							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['register']}</span>")."
-						</fieldset>						
-						<fieldset>
-							<input type=\"checkbox\" name=\"chbox\" />
-							<label for=\"remember\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
-						</fieldset>
-						<fieldset>
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
-						</fieldset>													
-					</form>
-					<div class=\"clearfix\">&nbsp;</div>
-				</div>
+			<div id=\"login-base\" class=\"floatingdialog\" autocomplete=\"off\">
+				<h3 class=\"center\">{$GLOBALS['lang']['login']}</h3>
+				<form action=\"/login_action\" method=\"post\" class=\"center\">
+					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
+					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
+					<fieldset>
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
+					</fieldset>
+					<fieldset>
+						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'login'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"")."
+					</fieldset>
+					<fieldset>
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
+					</fieldset>													
+				</form>
 			</div>
-			<div id=\"recovery\" style=\"display: none;\" class=\"floatingdialog\">
-				<div class=\"form-small\">
-					<h3 class=\"center\">{$GLOBALS['lang']['recovery']}</h3>
-					<form action=\"/recovery_action\" method=\"post\" class=\"center\">
-						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
-						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-							".(isset($_GET['erecovery'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['erecovery']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['recoverytips']}</a>")."
-						</fieldset>
-						<fieldset>
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['save']}\" />
-						</fieldset>													
-					</form>
-					<div class=\"clearfix\">&nbsp;</div>
-				</div>
+			<div id=\"recovery\" class=\"floatingdialog\" autocomplete=\"off\">
+				<h3 class=\"center\">{$GLOBALS['lang']['recovery']}</h3>
+				<form action=\"/recovery_action\" method=\"post\" class=\"center\">
+					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
+					<fieldset>
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'recovery'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['recoverytips']}</span>")."
+					</fieldset>
+					<fieldset>
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['save']}\" />
+					</fieldset>													
+				</form>
 			</div>
-			<div id=\"signup\" class=\"floatingdialog\">
-				<div class=\"form-small\">		
-					<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
-					<p style=\"text-align: center;\">{$GLOBALS['lang']['signup_intro']}</p>
-					<form action=\"/signup_action\" method=\"post\" id=\"valid\" class=\"center\">
-						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />				
-						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"".($_SESSION['JOIN_EMAIL']?"{$_SESSION['JOIN_EMAIL']}":"{$GLOBALS['lang']['email']}")."\" name=\"email\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['email']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['email']}' : this.value; this.value=='{$GLOBALS['lang']['email']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-						</fieldset>
-						<fieldset>
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
-						</fieldset>
-					</form>
-				</div>
+			<div id=\"signup\" class=\"floatingdialog\" autocomplete=\"off\">	
+				<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
+				<form action=\"/signup_action\" method=\"post\" id=\"valid\" class=\"center\">
+					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />				
+					<fieldset>
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['email']}\" name=\"email\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'signup'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"")."
+					</fieldset>
+					<fieldset>
+						<input type=\"checkbox\" name=\"conditions\" value=\"1\" />
+						{$GLOBALS['lang']['conditions']}
+					</fieldset>
+					<fieldset>
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
+					</fieldset>
+				</form>
 			</div>
-			<div id=\"register\" class=\"floatingdialog\">
-				<div class=\"form-small\">		
-					<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
-					<p style=\"text-align: center;\">{$GLOBALS['lang']['signup_explain']}</p>
-					<form action=\"/confirm_action\" method=\"post\" id=\"valid\" class=\"center\">
-						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
-						<input type=\"hidden\" name=\"email\" value=\"{$_SESSION['REGISTER']['EMAIL']}\" />
-						<input type=\"hidden\" name=\"id\" value=\"{$_SESSION['REGISTER']['ID']}\" />
-						<input type=\"hidden\" name=\"origin\" value=\"{$_SESSION['REGISTER']['ORIGIN']}\" />
-						<fieldset>
-							<input class=\"auto\" style=\"width: 240px;\" type=\"text\" value=\"".($_SESSION['JOIN_USER']?"{$_SESSION['JOIN_USER']}":"{$GLOBALS['lang']['username']}")."\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-							".(isset($_GET['eregister'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['eregister']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</a>")."
-						</fieldset>
-						<fieldset>
-							<input class=\"auto\" style=\"width: 240px;\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
-						</fieldset>		
-						<fieldset>	
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
-						</fieldset>
-					</form>
-				</div>
+			<div id=\"register\" class=\"floatingdialog\" autocomplete=\"off\">
+				<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
+				<p style=\"text-align: center;\">{$GLOBALS['lang']['signup_explain']}</p>
+				<form action=\"/confirm_action\" method=\"post\" id=\"valid\" class=\"center\">
+					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
+					<input type=\"hidden\" name=\"email\" value=\"{$_SESSION['REGISTER']['EMAIL']}\" />
+					<input type=\"hidden\" name=\"id\" value=\"{$_SESSION['REGISTER']['ID']}\" />
+					<input type=\"hidden\" name=\"origin\" value=\"{$_SESSION['REGISTER']['ORIGIN']}\" />
+					<fieldset>
+						<input style=\"width: 240px;\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'register'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</span>")."
+					</fieldset>
+					<fieldset>
+						<input style=\"width: 240px;\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
+					</fieldset>
+					<fieldset>	
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
+					</fieldset>
+				</form>
 			</div>
 			<div id=\"changepass\" class=\"floatingdialog\">
-				<div class=\"form-small\">		
-					<h3 class=\"center\">{$GLOBALS['lang']['changepass']}</h3>
-					<p style=\"text-align: center;\">{$GLOBALS['lang']['changepass_explain']}</p>
-					<form action=\"/change_password_action\" method=\"post\" id=\"valid\" class=\"center\">
-						<input type=\"hidden\" name=\"token\" value=\"{$_SESSION['CHANGEPASS']['TOKEN']}\" />
-						<input type=\"hidden\" name=\"user\" value=\"{$_SESSION['CHANGEPASS']['USER']}\" />
-						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
-							".(isset($_GET['echangepassword'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['echangepassword']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['changetip']}</a>")."
-						</fieldset>
-						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['confirm']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['confirm']}' : this.value; this.value=='{$GLOBALS['lang']['confirm']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
-							<span class=\"help-block\">{$GLOBALS['lang']['confirmtip']}</a>
-						</fieldset>					
-						<fieldset>	
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['change']}\" />
-						</fieldset>
-					</form>
-				</div>
+				<h3 class=\"center\">{$GLOBALS['lang']['changepass']}</h3>
+				<p style=\"text-align: center;\">{$GLOBALS['lang']['changepass_explain']}</p>
+				<form action=\"/change_password_action\" method=\"post\" id=\"valid\" class=\"center\">
+					<input type=\"hidden\" name=\"token\" value=\"{$_SESSION['CHANGEPASS']['TOKEN']}\" />
+					<input type=\"hidden\" name=\"user\" value=\"{$_SESSION['CHANGEPASS']['USER']}\" />
+					<fieldset>
+						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\"  />							
+						".(isset($_GET['echangepassword'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['echangepassword']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['changetip']}</span>")."
+					</fieldset>
+					<fieldset>
+						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" />							
+						<span class=\"help-block\">{$GLOBALS['lang']['confirmtip']}</a>
+					</fieldset>					
+					<fieldset>	
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['change']}\" />
+					</fieldset>
+				</form>
 			</div>
 			<div id=\"bug\" class=\"floatingdialog\">
 				<br />
 				<h3 class=\"center\">{$GLOBALS['lang']['newbug']}</h3>
-				<p style=\"text-align: center;\">{$GLOBALS['lang']['newbug_text']}</p>
-				<div class=\"form-small\">
-					<form action=\"/bugreport_action\" method=\"post\" class=\"center\">
-						<fieldset>
-							<input class=\"auto\" type=\"text\"  style=\"width: 400px;\" value=\"{$GLOBALS['lang']['newbug_name']}\" name=\"name\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['newbug_name']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['newbug_name']}' : this.value; this.value=='{$GLOBALS['lang']['newbug_name']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-							<span class=\"help-block\">{$GLOBALS['lang']['newbug_name_help']}</span>
-						</fieldset>
-						<fieldset>
-							<input class=\"auto\" type=\"text\"  style=\"width: 400px;\" value=\"{$GLOBALS['lang']['newbug_desc']}\" name=\"desc\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['newbug_desc']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['newbug_desc']}' : this.value; this.value=='{$GLOBALS['lang']['newbug_desc']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
-							<span class=\"help-block\">{$GLOBALS['lang']['newbug_desc_help']}</span>
-						</fieldset>
-						<fieldset>
-							<textarea class=\"auto\" style=\"width: 400px; height: 150px;\" name=\"content\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['newbug_content']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['newbug_content']}' : this.value; this.value=='{$GLOBALS['lang']['newbug_content']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\">{$GLOBALS['lang']['newbug_content']}</textarea>
-							<span class=\"help-block\">{$GLOBALS['lang']['newbug_content_help']}</span>
-						</fieldset>
-						<fieldset>	
-							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['newbug_submit']}\" />
-						</fieldset>
-					</form>							
-				</div>
+				<form action=\"/bugreport_action\" method=\"post\" class=\"center\">
+					<fieldset>
+						<input type=\"text\" class=\"large\" placeholder=\"{$GLOBALS['lang']['newbug_name']}\" name=\"email\" />
+						".(isset($_SESSION['ERROR']['MESSAGE']) && $_SESSION['ERROR']['HANDLER'] == 'bugreport'?"<span class=\"help-block\" style=\"color: #bc0000;\">{$_SESSION['ERROR']['MESSAGE']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['newbug_name_help']}</span>")."
+					</fieldset>
+					<fieldset>
+						<input type=\"text\" class=\"large\" placeholder=\"{$GLOBALS['lang']['newbug_desc']}\" name=\"desc\" />
+						<span class=\"help-block\">{$GLOBALS['lang']['newbug_desc_help']}</span>
+					</fieldset>
+					<fieldset>
+						<textarea class=\"large\" style=\"height: 150px;\" name=\"content\" placeholder=\"{$GLOBALS['lang']['newbug_content']}\"></textarea>
+						<span class=\"help-block\">{$GLOBALS['lang']['newbug_content_help']}</span>
+					</fieldset>
+					<fieldset>	
+						<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['newbug_submit']}\" />
+					</fieldset>
+				</form>							
 			</div>
-		";
-
-		if( $_SESSION['CHANGEPASS']['TOKEN'] && $_SESSION['CHANGEPASS']['USER'] )
-		{
-			$objects .= "
-						<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#changepass\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-							});
-						</script>
-			";
-		}		
-		if( $_SESSION['FORM']['OPEN'] )
-		{
-			$objects .= "<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#{$_SESSION['FORM']['OPEN']}\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-							});
-						</script>";
-			unset($_SESSION['FORM']['OPEN']);
-		}
-		
-		if( $_SESSION['MESSAGE'] )
-		{
-			$objects .= "<div id=\"message\">
+			<div id=\"alert\" class=\"floatingdialog\">
 				<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/notifications/{$_SESSION['MESSAGE']['TYPE']}.png\" /><br />
 				<p>{$_SESSION['MESSAGE']['TEXT']}</p>
 			</div>
-			";
-		 }
-
-		if( isset($_GET['elogin']) )
-		{
-			$objects .= "<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#login\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-							});
-							function recovery()
-							{
-								$(\"#login\").html($('#recovery').html());
-							}
-							
-							function norecovery()
-							{
-								$(\"#login\").html($('#login-base').html());
-							}
-						</script>
-			";
-		}
-
-		if( isset($_GET['erecovery']) )
-		{
-			$objects .= "<script type=\"text/javascript\">
-								$(\"#login\").html($('#recovery').html());
-						</script>";
-		}
-		if( isset($_GET['ecode']) )
-		{
-			$objects .= "<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#signup\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-							});
-						</script>";
-		}
-		
-		if( $_SESSION['REGISTER']['STATUS'] === true )
-		{
-			$objects .= "<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#register\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-							});
-						</script>";	
-						
-			$_SESSION['REGISTER'] = false;
-		}
-		
-		if( $_SESSION['MESSAGE'] )
-		{
-			$objects .= "<script type=\"text/javascript\">
-							$(document).ready(function() {
-								$(\"#message\").dialog(\"open\");
-								$(\".ui-dialog-titlebar\").hide();
-								setTimeout(\"$('#message').dialog('close')\", 3000);
-							});
-						</script>";
 			
-			// we displayed it, clear it
-			$_SESSION['MESSAGE'] = false;
+			<script type=\"text/javascript\">
+				$(document).ready(function()
+				{
+		";
+		if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
+		{
+			$objects .= "
+				$(\"#search\").autocomplete(
+				{
+					source: \"/store/ajax_search\",
+					minLength: 1,
+					focus: function( event, ui )
+					{
+						$('#search').val( ui.item.connector_name );
+					},
+					select: function( event, ui )
+					{
+						if( ui.item )
+						{
+							$('#connectorid').val(ui.item.connector_id);
+						}
+						$(\"#searchform\").submit();
+					}
+				})
+				.data(\"ui-autocomplete\")._renderItem = function( ul, item )
+				{
+					return $(\"<li class='autocomplete' style='padding: 10px;'></li>\")
+					.append(\"<img src='\" + item.connector_image + \"' alt='' /><span class='title'>\" + item.connector_name + \"</span><span class='subtitle'>\" + item.connector_promo + \"</span>\" )
+					.appendTo( ul );
+				};
+				$(\"#search-mob\").autocomplete(
+				{
+					source: \"/store/ajax_search\",
+					minLength: 1,
+					focus: function( event, ui )
+					{
+						$('#search-mob').val( ui.item.connector_name );
+					},
+					select: function( event, ui )
+					{
+						if( ui.item )
+						{
+							$('#connectorid-mob').val(ui.item.connector_id);
+						}
+						$(\"#searchform-mob\").submit();
+					}
+				})
+				.data(\"ui-autocomplete\")._renderItem = function( ul, item )
+				{
+					return $(\"<li class='autocomplete' style='padding: 10px;'></li>\")
+					.append(\"<img src='\" + item.connector_image + \"' alt='' /><span class='title'>\" + item.connector_name + \"</span><span class='subtitle'>\" + item.connector_promo + \"</span>\" )
+					.appendTo( ul );
+				};
+			";
 		}
+		
+		if( $_SESSION['ERROR']['HANDLER'] == 'signup' )
+			$objects .= " $(\"#signup\").dialog(\"open\");\n";
+		if( $_SESSION['ERROR']['HANDLER'] == 'register' )	
+			$objects .= " $(\"#register\").dialog(\"open\");\n";
+		if( $_SESSION['REGISTER']['STATUS'] === true )
+			$objects .= " $(\"#register\").dialog(\"open\");\n";
+		if( $_SESSION['ERROR']['HANDLER'] == 'login' )	
+			$objects .= " $(\"#login\").dialog(\"open\");\n";
+		if( $_SESSION['ERROR']['HANDLER'] == 'bugreport' )	
+			$objects .= " $(\"#bug\").dialog(\"open\");\n";
+		if( $_SESSION['ERROR']['HANDLER'] == 'recovery' )	
+			$objects .= "$(\"#login\").html($('#recovery').html()); $(\"#login\").dialog(\"open\");\n";
+		if( $_SESSION['CHANGEPASS']['TOKEN'] && $_SESSION['CHANGEPASS']['USER'] )
+			$objects .= "$(\"#changepass\").dialog(\"open\");\n";	
+		if( $_SESSION['FORM']['OPEN'] )
+			$objects .= "$(\"#{$_SESSION['FORM']['OPEN']}\").dialog(\"open\");\n";
+		if( $_SESSION['MESSAGE'] )
+			$objects .= "$(\"#alert\").dialog(\"open\"); setTimeout(\"$('#alert').dialog('close')\", 3000);\n";
+		
+		$objects .= "	
+				});
+			</script>
+		";
+
+		unset($_SESSION['ERROR']);
+		unset($_SESSION['MESSAGE']);
+		unset($_SESSION['FORM']['OPEN']);
 		
 		return $objects;
 	

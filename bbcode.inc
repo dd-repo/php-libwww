@@ -31,6 +31,7 @@ class bbcode
 		if( $mode == self::BBCODE )
 		{
 			$search = array(
+				'/</', '/>/',
 				'/\[b\](.*?)\[\/b\]/is',                                
 				'/\[i\](.*?)\[\/i\]/is',                                
 				'/\[u\](.*?)\[\/u\]/is',
@@ -43,12 +44,13 @@ class bbcode
 				'/\[code\](.*?)\[\/code\]/is',
 				'/\[quote\](.*?)\[\/quote\]/is',
 				'/\[img\](.*?)\[\/img\]/is',
-				'/\[link\=(.*?)\](.*?)\[\/link\]|\[url\](.*?)\[\/url\]|(\s+https?:\/\/[^\s\[<>"]*)/is'
+				'/\[link\=(.*?)\](.*?)\[\/link\]|\[url\](.*?)\[\/url\]|(\s+https?:\/\/[^\s\[<>"]*)/is',
 				);
 		}
 		else if( $mode == self::WIKI )
 		{
 			$search = array(
+				'/</', '/>/',
 				'/(^|\s)\*(\S|\S.*?\S)\*(\s|$)/is',                                
 				'/(^|\s)_(\S|\S.*?\S)_(\s|$)/is',                                
 				'/(^|\s)\+(\S|\S.*?\S)\+(\s|$)/is',
@@ -67,7 +69,8 @@ class bbcode
 		if( $mode == self::BBCODE )
 		{
 			$replace = array(
-				'<strong>$1</strong>',
+				'&lt;', '&gt;',
+				'<span style="font-weight: bold">$1</span>',
 				'<i>$1</i>',
 				'<span style="text-decoration:underline;">$1</span>',
 				'<span style="text-decoration:line-through;">$1</span>',
@@ -85,6 +88,7 @@ class bbcode
 		else if( $mode == self::WIKI )
 		{
 			$replace = array(
+				'&lt;', '&gt;',
 				'$1<strong>$2</strong>$3',
 				'$1<i>$2</i>$3',
 				'$1<span style="text-decoration:underline;">$2</span>$3',
