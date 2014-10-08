@@ -45,6 +45,7 @@ class template_busit extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
+		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
@@ -67,8 +68,10 @@ class template_busit extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>";
 
-if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false )
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false  )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin/space/view') !== false  )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view_admin.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'showcase') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'learn') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'setup') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'cases') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/showcase.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
@@ -77,6 +80,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/store.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/panel.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/admin.js\"></script>";
 	
 $top .= "
 	</head>
@@ -363,10 +368,13 @@ $top .= "\">";
 			{
 				$self = api::send('self/system/user/select');
 				$self = $self[0];			
+				$logs = api::send('self/busit/instance/log/select', array('read'=>0, 'count'=>1, 'error'=>1));
+				$logs = $logs[0];
 				
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile-mob\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
@@ -449,6 +457,7 @@ $top .= "\">";
 				$menu .= "
 					<div style=\"position: relative; float: right;\">
 						<a href=\"#\" id=\"profile\">
+							<span style=\"margin-top: 10px;\" class=\"numbererrors\">{$logs['count']}</span>
 							<span style=\"display: block; float: left; padding: 13px 0 0 0;\">{$self['user_name']}</span>
 							<img style=\"display: block; float: left; padding: 13px 0 0 10px;\" src=\"/{$GLOBALS['CONFIG']['SITE']}/images/arrow.png\" />
 							<img class=\"profile-image\" src=\"".(file_exists("{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png")?"/{$GLOBALS['CONFIG']['SITE']}/images/users/{$self['user_id']}.png":"https://www.gravatar.com/avatar/".md5($self['user_mail']))."\" alt=\"\" />
@@ -501,7 +510,7 @@ $bottom .= "\">
 					<a class=\"link\" href=\"https://www.facebook.com/busit.net\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/facebook.png\" alt=\"Facebook\" />
 					</a>
-					<a class=\"link\" href=\"https://google.com/+BusitFr\">
+					<a class=\"link\" href=\"https://plus.google.com/+BusitFr\" rel=\"publisher\">
 						<img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/icons/social/google.png\" alt=\"Google+\" />
 					</a>
 					<a class=\"link\" href=\"https://www.linkedin.com/company/5121205\">
@@ -552,10 +561,28 @@ $bottom .= "\">
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
 		ga('create', 'UA-54136170-1', 'auto');
+		ga('require', 'displayfeatures');
 		ga('send', 'pageview');
 	</script>
+	
+	<script>(function() {
+		var _fbq = window._fbq || (window._fbq = []);
+		if (!_fbq.loaded) {
+			var fbds = document.createElement('script');
+			fbds.async = true;
+			fbds.src = '//connect.facebook.net/en_US/fbds.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(fbds, s);
+			_fbq.loaded = true;
+		}
+		_fbq.push(['addPixelId', '312138485636142']);
+		})();
+		window._fbq = window._fbq || [];
+		window._fbq.push(['track', 'PixelInitialized', {}]);
+	</script>
+	<noscript><img height=\"1\" width=\"1\" alt=\"\" style=\"display:none\" src=\"https://www.facebook.com/tr?id=312138485636142&amp;ev=PixelInitialized\" /></noscript>
+
 	</body>
 </html>";
 		
@@ -583,7 +610,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
@@ -600,7 +627,7 @@ $bottom .= "\">
 					<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 					<input type=\"hidden\" name=\"remember\" value=\"remember\" />
 					<fieldset>
-						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+						<input type=\"text\" placeholder=\"{$GLOBALS['lang']['useroremail']}\" name=\"username\" />
 					</fieldset>
 					<fieldset>
 						<input type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />

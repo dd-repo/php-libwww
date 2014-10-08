@@ -70,7 +70,7 @@ class bbcode
 		{
 			$replace = array(
 				'&lt;', '&gt;',
-				'<strong>$1</strong>',
+				'<span style="font-weight: bold">$1</span>',
 				'<i>$1</i>',
 				'<span style="text-decoration:underline;">$1</span>',
 				'<span style="text-decoration:line-through;">$1</span>',
