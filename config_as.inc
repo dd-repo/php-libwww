@@ -20,6 +20,7 @@ $GLOBALS['CONFIG']['API_HOST'] 		 = 'https://' . $conf['Main']['API_HOST'];
 $GLOBALS['CONFIG']['API_USERNAME']	 = $conf['Main']['API_USERNAME'];
 $GLOBALS['CONFIG']['API_PASSWORD']	 = $conf['Main']['API_TOKEN'];
 $GLOBALS['CONFIG']['HOSTNAME']		 = $conf['Main']['HOSTNAME'];
+$GLOBALS['CONFIG']['DOMAIN']		 = $conf['Main']['DOMAIN'];
 $GLOBALS['CONFIG']['UPTIME_TOKEN']	 = $conf['Main']['UPTIME_TOKEN'];
 $GLOBALS['CONFIG']['DOMAIN_GENERIC'] = $conf['Main']['DOMAIN_GENERIC'];
 $GLOBALS['CONFIG']['REDMINE_TOKEN']	 = $conf['Main']['REDMINE_TOKEN'];
