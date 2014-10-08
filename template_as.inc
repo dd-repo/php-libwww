@@ -355,11 +355,6 @@ $top .= "
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"")."
 						</fieldset>						
 						<fieldset>
-<<<<<<< HEAD
-							<input type=\"checkbox\" name=\"chbox\" />
-							<label for=\"remember\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
-						</fieldset>
-						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
 						</fieldset>													
 					</form>
@@ -380,8 +375,6 @@ $top .= "
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"")."
 						</fieldset>
 						<fieldset>
-=======
->>>>>>> 73d2426852e4bb29ef0a763b0d32ee84493b36f9
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
 						</fieldset>													
 					</form>
