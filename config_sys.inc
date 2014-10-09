@@ -13,7 +13,7 @@ if( file_exists( $file ) )
 }
 else if( file_exists( '../www.ini' ) )
 {
-    $conf = parse_ini_file('../www.ini');
+    $conf = parse_ini_file('../www.ini', true);
     $conf['type'] = 'file';
 }
 	
@@ -31,6 +31,7 @@ $GLOBALS['CONFIG']['UPTIME_TOKEN']		= $conf['Main']['UPTIME_TOKEN'];
 
 $GLOBALS['CONFIG']['TWITTER_TOKEN']		= $conf['Main']['TWITTER_TOKEN'];
 $GLOBALS['CONFIG']['TWITTER_SECRET']	= $conf['Main']['TWITTER_SECRET'];
+$GLOBALS['CONFIG']['GOOGLE_TOKEN']		= $conf['Main']['GOOGLE_TOKEN'];
 
 if( $conf['Main']['DEBUG'] == 'inactive' )
 $GLOBALS['CONFIG']['DEBUG'] 		= false;
