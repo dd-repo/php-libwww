@@ -50,9 +50,15 @@ $top .= "\">
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"Cache-control\" content=\"no-cache\">
 		<meta http-equiv=\"Expires\" content=\"-1\">
-		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
-		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
-		<meta name=\"HandheldFriendly\" content=\"true\">
+		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" />
+		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />
+		<meta name=\"HandheldFriendly\" content=\"true\" />
+";
+
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') !== false  )
+	$top .= "		<meta http-equiv=\"refresh\" content=\"30\" />";
+
+$top .= "
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
