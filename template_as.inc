@@ -298,6 +298,7 @@ $top .= "
 						<li id=\"facebook\"><a href=\"https://www.facebook.com/another.service\">Facebook</a></li>
 						<li id=\"twitter\"><a href=\"https://twitter.com/anotherservice\">Twitter</a></li>
 						<li id=\"linkedin\"><a href=\"http://www.linkedin.com/company/s-y-s-sas\">LinkedIn</a></li>
+						<li id=\"googleplus\"><a href=\"http://www.linkedin.com/company/s-y-s-sas\">LinkedIn</a></li>
 					</ul>
 				</div>
 				<div class=\"clearfix\"></div>
