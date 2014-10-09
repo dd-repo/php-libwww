@@ -26,8 +26,11 @@ $GLOBALS['CONFIG']['API_ON_PASSWORD']	= $conf['Main']['API_ON_TOKEN'];
 $GLOBALS['CONFIG']['API_BI_HOST'] 		= 'https://' . $conf['Main']['API_BI_HOST'];
 $GLOBALS['CONFIG']['API_BI_USERNAME']	= $conf['Main']['API_BI_USERNAME'];
 $GLOBALS['CONFIG']['API_BI_PASSWORD']	= $conf['Main']['API_BI_TOKEN'];
-$GLOBALS['CONFIG']['HOSTNAME']		= $conf['Main']['HOSTNAME'];
-$GLOBALS['CONFIG']['UPTIME_TOKEN']	= $conf['Main']['UPTIME_TOKEN'];
+$GLOBALS['CONFIG']['HOSTNAME']			= $conf['Main']['HOSTNAME'];
+$GLOBALS['CONFIG']['UPTIME_TOKEN']		= $conf['Main']['UPTIME_TOKEN'];
+
+$GLOBALS['CONFIG']['TWITER_TOKEN']		= $conf['Main']['TWITER_TOKEN'];
+$GLOBALS['CONFIG']['TWITER_SECRET']		= $conf['Main']['TWITER_SECRET'];
 
 if( $conf['Main']['DEBUG'] == 'inactive' )
 $GLOBALS['CONFIG']['DEBUG'] 		= false;

@@ -38,7 +38,12 @@ class template_sys extends template
 	{
 		$top = "
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\" style=\"";
+
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') !== false  )
+	$top .= "overflow: hidden; scrollbar: none;"; 
+
+$top .= "\">
 	<head>
 		<title>{$GLOBALS['lang']['TITLE']}</title>
 		<meta name=\"description\" content=\"{$GLOBALS['lang']['DESCRIPTION']}\" />
@@ -65,7 +70,12 @@ class template_sys extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>
 	</head>
-	<body>
+	<body style=\"";
+
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') !== false  )
+	$top .= "overflow: hidden; scrollbar: none;"; 
+
+$top .= "\">
 	<div id=\"fb-root\"></div>
 	<script>
 		(function(d, s, id){
@@ -81,7 +91,7 @@ class template_sys extends template
 		<div class=\"header\">
 			<div class=\"content\">
 ";
-				
+	if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') === false  )
 		$top .= $this->getMainMenu();
 			
 		$top .= "
