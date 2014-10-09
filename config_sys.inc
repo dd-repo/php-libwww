@@ -29,8 +29,8 @@ $GLOBALS['CONFIG']['API_BI_PASSWORD']	= $conf['Main']['API_BI_TOKEN'];
 $GLOBALS['CONFIG']['HOSTNAME']			= $conf['Main']['HOSTNAME'];
 $GLOBALS['CONFIG']['UPTIME_TOKEN']		= $conf['Main']['UPTIME_TOKEN'];
 
-$GLOBALS['CONFIG']['TWITER_TOKEN']		= $conf['Main']['TWITER_TOKEN'];
-$GLOBALS['CONFIG']['TWITER_SECRET']		= $conf['Main']['TWITER_SECRET'];
+$GLOBALS['CONFIG']['TWITTER_TOKEN']		= $conf['Main']['TWITTER_TOKEN'];
+$GLOBALS['CONFIG']['TWITTER_SECRET']	= $conf['Main']['TWITTER_SECRET'];
 
 if( $conf['Main']['DEBUG'] == 'inactive' )
 $GLOBALS['CONFIG']['DEBUG'] 		= false;
