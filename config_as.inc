@@ -16,14 +16,18 @@ else if( file_exists( '../www.ini' ) )
     $conf['type'] = 'file';
 }
 
-$GLOBALS['CONFIG']['API_HOST'] 		 = 'https://' . $conf['Main']['API_HOST'];
-$GLOBALS['CONFIG']['API_USERNAME']	 = $conf['Main']['API_USERNAME'];
-$GLOBALS['CONFIG']['API_PASSWORD']	 = $conf['Main']['API_TOKEN'];
-$GLOBALS['CONFIG']['HOSTNAME']		 = $conf['Main']['HOSTNAME'];
-$GLOBALS['CONFIG']['DOMAIN']		 = $conf['Main']['DOMAIN'];
-$GLOBALS['CONFIG']['UPTIME_TOKEN']	 = $conf['Main']['UPTIME_TOKEN'];
-$GLOBALS['CONFIG']['DOMAIN_GENERIC'] = $conf['Main']['DOMAIN_GENERIC'];
-$GLOBALS['CONFIG']['REDMINE_TOKEN']	 = $conf['Main']['REDMINE_TOKEN'];
+$GLOBALS['CONFIG']['API_HOST'] 		  = 'https://' . $conf['Main']['API_HOST'];
+$GLOBALS['CONFIG']['API_USERNAME']	  = $conf['Main']['API_USERNAME'];
+$GLOBALS['CONFIG']['API_PASSWORD']	  = $conf['Main']['API_TOKEN'];
+$GLOBALS['CONFIG']['HOSTNAME']		  = $conf['Main']['HOSTNAME'];
+$GLOBALS['CONFIG']['DOMAIN']		  = $conf['Main']['DOMAIN'];
+$GLOBALS['CONFIG']['UPTIME_TOKEN']	  = $conf['Main']['UPTIME_TOKEN'];
+$GLOBALS['CONFIG']['DOMAIN_GENERIC']  = $conf['Main']['DOMAIN_GENERIC'];
+$GLOBALS['CONFIG']['REDMINE_TOKEN']	  = $conf['Main']['REDMINE_TOKEN'];
+$GLOBALS['CONFIG']['API_ON_PASSWORD'] = $conf['Main']['API_ON_TOKEN'];
+$GLOBALS['CONFIG']['API_ON_HOST']	  = 'https://' . $conf['Main']['API_ON_HOST'];
+$GLOBALS['CONFIG']['API_ON_USERNAME'] = $conf['Main']['API_ON_USERNAME'];
+
 $GLOBALS['CONFIG']['DEBUG'] 		 = false;
 unset($conf);
 unset($file);
