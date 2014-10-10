@@ -38,16 +38,21 @@ class template_sys extends template
 	{
 		$top = "
 <!DOCTYPE html>
-<html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\">
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:v=\"urn:schemas-microsoft-com:vml\" style=\"";
+
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') !== false  )
+	$top .= "overflow: hidden; scrollbar: none;"; 
+
+$top .= "\">
 	<head>
 		<title>{$GLOBALS['lang']['TITLE']}</title>
 		<meta name=\"description\" content=\"{$GLOBALS['lang']['DESCRIPTION']}\" />
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"Cache-control\" content=\"no-cache\">
 		<meta http-equiv=\"Expires\" content=\"-1\">
-		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
-		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
-		<meta name=\"HandheldFriendly\" content=\"true\">
+		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" />
+		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\" />
+		<meta name=\"HandheldFriendly\" content=\"true\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
@@ -65,7 +70,12 @@ class template_sys extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>
 	</head>
-	<body>
+	<body style=\"";
+
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') !== false  )
+	$top .= "overflow: hidden; scrollbar: none;"; 
+
+$top .= "\">
 	<div id=\"fb-root\"></div>
 	<script>
 		(function(d, s, id){
@@ -81,7 +91,7 @@ class template_sys extends template
 		<div class=\"header\">
 			<div class=\"content\">
 ";
-				
+	if( strstr($GLOBALS['CONFIG']['PAGE'], 'stats') === false  )
 		$top .= $this->getMainMenu();
 			
 		$top .= "

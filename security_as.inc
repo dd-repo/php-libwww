@@ -14,6 +14,11 @@ class access_as
 		$a['/admin'] = array('ACCESS', 'USER_SELECT');
 		$a['/admin/index'] = array('ACCESS', 'USER_SELECT');
 		
+		$a['/router'] = array('ACCESS');
+		$a['/router/index'] = array('ACCESS');
+		$a['/router/plans'] = array('ACCESS');
+		$a['/logout'] = array('ACCESS');
+		
 		$a['/panel'] = array('ACCESS');
 		$a['/panel/index'] = array('ACCESS');
 		$a['/panel/apps'] = array('ACCESS');
@@ -24,9 +29,12 @@ class access_as
 		$a['/panel/quotas'] = array('ACCESS');
 		$a['/panel/messages'] = array('ACCESS');
 		$a['/panel/settings'] = array('ACCESS');
+<<<<<<< HEAD
 		$a['/panel/billing'] = array('ACCESS');
 		$a['/panel/billing/view'] = array('ACCESS');
 		$a['/logout'] = array('ACCESS');
+=======
+>>>>>>> b866b27b5f20a60ff98d90f4829331376abce49e
 		
 		if( !is_array($page) )
 			$page = array($page);
