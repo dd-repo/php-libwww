@@ -24,6 +24,8 @@ class access_as
 		$a['/panel/quotas'] = array('ACCESS');
 		$a['/panel/messages'] = array('ACCESS');
 		$a['/panel/settings'] = array('ACCESS');
+		$a['/panel/billing'] = array('ACCESS');
+		$a['/panel/billing/view'] = array('ACCESS');
 		$a['/logout'] = array('ACCESS');
 		
 		if( !is_array($page) )
