@@ -45,7 +45,6 @@ class template_busit extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
-		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
@@ -159,7 +158,6 @@ $top .= "\">";
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
 		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
 		<meta name=\"HandheldFriendly\" content=\"true\">
-		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/font-awesome.css\" type=\"text/css\" />
