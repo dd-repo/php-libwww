@@ -1,8 +1,8 @@
 [EN]
 
 [FR]
-TITLE = "Another Service - Hébergement applicatif et infrastructure cloud"
-DESCRIPTION = "Services d'hébergement et fournisseur PaaS/IaaS haute disponibilité."
+TITLE = "Another Service - Hébergement web et plateforme de cloud computing"
+DESCRIPTION = "Services d'hébergement PHP, Java, Ruby, Python... Fournisseur PaaS/IaaS haute disponibilité."
 WEBSITE = "Retour au portail"
 MONIT = "Supervision"
 ISSUES = "Maintenances"
