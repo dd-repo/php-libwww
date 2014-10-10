@@ -234,7 +234,7 @@ $top .= "
 					else
 					{
 						$menu .= "
-									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']} {$a}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']} fa-fw\"></i>":"")."&nbsp;&nbsp; ".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
+									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']} {$a}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']} fa-fw\"></i>&nbsp;&nbsp;&nbsp;":"")."".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
 						";
 					}
 				}
