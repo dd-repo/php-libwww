@@ -45,7 +45,6 @@ class template_busit extends template
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
 		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\" /> 
-		<meta name=\"google-site-verification\" content=\"8-lSypWKth4IJz86Q1Ebjxz9e2KvIfoIJsJZVRgchS0\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/prism.css\" type=\"text/css\" />
@@ -68,8 +67,10 @@ class template_busit extends template
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/footer.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/main.js\"></script>";
 
-if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false )
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel/space/view') !== false  )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin/space/view') !== false  )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/view_admin.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'showcase') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'learn') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'setup') !== false || strstr($GLOBALS['CONFIG']['PAGE'], 'cases') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/showcase.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'doc') !== false )
@@ -78,6 +79,8 @@ if( strstr($GLOBALS['CONFIG']['PAGE'], 'store') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/store.js\"></script>";
 if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
 	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/panel.js\"></script>";
+if( strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false )
+	$top .= "<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/admin.js\"></script>";
 	
 $top .= "
 	</head>
@@ -155,7 +158,6 @@ $top .= "\">";
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
 		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
 		<meta name=\"HandheldFriendly\" content=\"true\">
-		<meta name=\"google-site-verification\" content=\"0XKifQ42rWCTlPU-3fLlDjqnHqJl40o01bY2-S9D56Y\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/font-awesome.css\" type=\"text/css\" />

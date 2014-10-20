@@ -43,14 +43,11 @@ class template_as extends template
 		<title>{$GLOBALS['lang']['TITLE']}</title>
 		<meta name=\"description\" content=\"{$GLOBALS['lang']['DESCRIPTION']}\" />
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
-		<meta http-equiv=\"Cache-control\" content=\"no-cache\">
-		<meta http-equiv=\"Expires\" content=\"-1\">
+		<meta http-equiv=\"cache-control\" content=\"no-cache, must-revalidate\" /> 
 		<meta name=\"viewport\" content=\"width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no\">
-		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
-		<meta name=\"HandheldFriendly\" content=\"true\">
-		<meta name=\"google-site-verification\" content=\"Njm4b4GjVy2lmchM0ePmNBiAlyRToGDgS_pWsNmlZ9U\" />
 		<link rel=\"shortcut icon\" href=\"/{$GLOBALS['CONFIG']['SITE']}/images/favicon.ico\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
+		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/font-awesome.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/default.css\" />
 		<link href=\"https://fonts.googleapis.com/css?family=Cuprum\" rel=\"stylesheet\" type=\"text/css\" />
@@ -85,7 +82,7 @@ $top .= "
 		<div class=\"header\">
 			<div class=\"content\">
 				<div class=\"logo\">
-					<a href=\"/\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo.png\" alt=\"logo\" /></a>
+					<a href=\"/\"><img src=\"/{$GLOBALS['CONFIG']['SITE']}/images/logo.png\" alt=\"logo\" style=\"width: 80px;\" /></a>
 				</div>";
 				
 		$top .= $this->getMainMenu();
@@ -142,7 +139,7 @@ $top .= "
 										$subactive = "class=\"active\"";
 					
 									$menu .= "
-											<li class=\"{$menu_subitem['text']}\"><a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\" onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>{$GLOBALS['lang'][$menu_subitem['text']]}</a></li>";
+											<li class=\"{$menu_subitem['text']}\">".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_subitem['text']}\" href=\"{$menu_subitem['link']}\" onclick=\"{$menu_subitem['onclick']}\" title=\"\" {$subactive}>{$GLOBALS['lang'][$menu_subitem['text']]}</a></li>";
 								}
 								
 								$menu .= "
@@ -152,7 +149,7 @@ $top .= "
 						else
 						{
 							$menu .= "
-						<li class=\"{$menu_item['text']}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a></li>";
+						<li class=\"{$menu_item['text']}\">".($menu_subitem['icon']?"<i class=\"fa fa-{$menu_subitem['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\" {$active}>{$GLOBALS['lang'][$menu_item['text']]}</a></li>";
 						}
 					}
 				}
@@ -217,7 +214,7 @@ $top .= "
 					
 					if( is_array($menu_item['sub']) )
 					{
-						$menu .= "<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"sub ".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" {$a}><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\">".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a>
+						$menu .= "<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"sub ".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" {$a}>".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']}-o fa-fw\"></i>":"")." <a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\" title=\"\">".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a>
 							<ul>";
 								
 						foreach( $menu_item['sub'] as $menu_subitem )
@@ -237,7 +234,7 @@ $top .= "
 					else
 					{
 						$menu .= "
-									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']} {$a}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
+									<li id=\"".($menu_item['id']?"{$menu_item['id']}":"{$menu_item['text']}")."\" class=\"{$menu_item['text']} {$a}\"><a id=\"link-{$menu_item['text']}\" href=\"{$menu_item['link']}\" onclick=\"{$menu_item['onclick']}\">".($menu_item['icon']?"<i class=\"fa fa-{$menu_item['icon']} fa-fw\"></i>&nbsp;&nbsp;&nbsp;":"")."".($GLOBALS['lang'][$menu_item['text']]?"{$GLOBALS['lang'][$menu_item['text']]}":"{$menu_item['text']}")."</a></li>
 						";
 					}
 				}
@@ -347,16 +344,12 @@ $top .= "
 					<form action=\"/login_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
+							<input class=\"large\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>
+							<input class=\"large\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"")."
 						</fieldset>						
-						<fieldset>
-							<input type=\"checkbox\" name=\"chbox\" />
-							<label for=\"remember\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
-						</fieldset>
 						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
 						</fieldset>													
@@ -374,7 +367,7 @@ $top .= "
 							<input type=\"text\" value=\"demo\" name=\"username\" readonly=\"true\" />
 						</fieldset>
 						<fieldset>
-							<input type=\"password\" value=\"demo\" name=\"password\" readonly=\"true\" />
+							<input type=\"password\" value=\"another service\" name=\"password\" readonly=\"true\" />
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"")."
 						</fieldset>
 						<fieldset>
@@ -390,15 +383,11 @@ $top .= "
 					<form action=\"/login_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
+							<input class=\"large\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>
+							<input class=\"large\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
 							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['register']}</span>")."
-						</fieldset>						
-						<fieldset>
-							<input type=\"checkbox\" name=\"chbox\" />
-							<label for=\"remember\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
 						</fieldset>
 						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
@@ -413,12 +402,12 @@ $top .= "
 					<form action=\"/recovery_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
+							<input class=\"large\" type=\"text\" value=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
 							".(isset($_GET['erecovery'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['erecovery']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['recoverytips']}</a>")."
 						</fieldset>
 						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['save']}\" />
-						</fieldset>													
+						</fieldset>											
 					</form>
 					<div class=\"clearfix\">&nbsp;</div>
 				</div>
@@ -429,7 +418,7 @@ $top .= "
 					<form action=\"/signup_action\" method=\"post\" id=\"valid\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"".($_SESSION['JOIN_EMAIL']?"{$_SESSION['JOIN_EMAIL']}":"{$GLOBALS['lang']['email']}")."\" name=\"email\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['email']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['email']}' : this.value; this.value=='{$GLOBALS['lang']['email']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
+							<input class=\"large\" type=\"text\" placeholder=\"{$GLOBALS['lang']['email']}\" name=\"email\" />
 							".(isset($_GET['esignup'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['esignup']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['email_tip']}</a>")."
 						</fieldset>
 						<fieldset>
@@ -451,11 +440,11 @@ $top .= "
 						<input type=\"hidden\" name=\"email\" value=\"{$_SESSION['REGISTER']['EMAIL']}\" />
 						<input type=\"hidden\" name=\"code\" value=\"{$_SESSION['REGISTER']['CODE']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" value=\"".($_SESSION['JOIN_USER']?"{$_SESSION['JOIN_USER']}":"{$GLOBALS['lang']['username']}")."\" name=\"username\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['username']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['username']}' : this.value; this.value=='{$GLOBALS['lang']['username']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" />
+							<input class=\"large\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
 							".(isset($_GET['eregister'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['eregister']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</a>")."
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
+							<input class=\"large\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
 						</fieldset>		
 						<fieldset>	
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
@@ -471,11 +460,11 @@ $top .= "
 						<input type=\"hidden\" name=\"token\" value=\"{$_SESSION['CHANGEPASS']['TOKEN']}\" />
 						<input type=\"hidden\" name=\"user\" value=\"{$_SESSION['CHANGEPASS']['USER']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['password']}\" name=\"password\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['password']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['password']}' : this.value; this.value=='{$GLOBALS['lang']['password']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
+							<input class=\"large\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
 							".(isset($_GET['echangepassword'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['echangepassword']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['changetip']}</a>")."
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" value=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['confirm']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['confirm']}' : this.value; this.value=='{$GLOBALS['lang']['confirm']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\"/>							
+							<input class=\"large\" type=\"password\" placeholder=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" />
 							<span class=\"help-block\">{$GLOBALS['lang']['confirmtip']}</a>
 						</fieldset>					
 						<fieldset>	
