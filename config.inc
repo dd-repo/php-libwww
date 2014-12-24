@@ -3,7 +3,8 @@
 // =================================
 // CROSSDOMAIN
 // =================================
-if( preg_match("/^\\/?crossdomain.xml$/i", $_GET['__rewrite']) )
+
+if( isset($_GET['__rewrite']) && preg_match("/^\\/?crossdomain.xml$/i", $_GET['__rewrite']) )
 {
 	header("Content-Type: text/xml");
 	echo "<?xml version=\"1.0\"?><cross-domain-policy><allow-access-from domain=\"*\"/><site-control permitted-cross-domain-policies=\"all\"/><allow-http-request-headers-from domain=\"*\" headers=\"*\"/></cross-domain-policy>";
@@ -30,6 +31,11 @@ $tld = array_pop( $domain );
 $host = array_pop( $domain ) . '.' . $tld;
 $sub = array_shift( $domain );
 
+if( is_array($domain) && isset($domain[0]) )
+	$subsub = $domain[0];
+else
+	$subsub = '';
+
 switch( $host )
 {
 	case 'olympe.in':
@@ -45,16 +51,11 @@ switch( $host )
 	case 'sys.com':
 		$GLOBALS['CONFIG']['SITE'] = 'sys';
 		break;
-	case 'bus-it.com':
-	case 'bus-it.net':
-        if ($sub == 'apps')
+	case 'busit.com':
+        if( $sub == 'apps' || $subsub == 'apps' )
 		    $GLOBALS['CONFIG']['SITE'] = 'apps';
         else
             $GLOBALS['CONFIG']['SITE'] = 'busit';
-        if( !preg_match("/^(apps|local|developers|www)/i", $sub) )
-        {
-            $GLOBALS['CONFIG']['INSTANCE'] = true;
-        }
 		break;
 	default:
 		if( $GLOBALS['CONFIG']['DEBUG'] )

@@ -23,7 +23,7 @@ class template_on extends template
 		else $stack = null;
 
 		$_SESSION['MESSAGE']['TYPE'] = 'error';
-		$_SESSION['MESSAGE']['TEXT'] = "<p>".nl2br($message)."</p><strong>".nl2br($detail)."</strong>";
+		$_SESSION['MESSAGE']['TEXT'] = "<p>".security::encode($message, true, true)."</p><strong>".security::encode($detail, true, true)."</strong>";
 		
 		if( $stack != null )
 		{
@@ -329,6 +329,8 @@ $top .= "
 		var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
 		g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
 	  })();
+	  
+	  
 	</script>
 	</body>
 </html>";

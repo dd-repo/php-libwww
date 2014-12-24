@@ -40,6 +40,7 @@ class access_busit
 		$a['/panel/share'] = array('SELF_ACCESS');
 		$a['/panel/setup'] = array('SELF_ACCESS');
 		$a['/panel/stats'] = array('SELF_ACCESS');
+		$a['/panel/develop'] = array('SELF_ACCESS');
 		
 		$a['/visualize'] = array('SUPERADMIN');
 		$a['/visualize/data'] = array('SUPERADMIN');
@@ -73,7 +74,7 @@ class security_busit extends security
 		{
 			// this is a password so get a list of tokens
 			$tokens = api::send('system/token/list', array('auth'=>'', 'user'=>$user, 'pass'=>$pass));
-			
+
 			if( count($tokens) < 1 )
 				throw new SiteException("Forbidden", 403, "No available token");
 
@@ -89,6 +90,7 @@ class security_busit extends security
 			else
 			{
 				// force login with the first token
+				$user = $tokens[0]['user_name'];
 				$pass = $tokens[0]['token_value'];
 			}
 		}
