@@ -23,7 +23,7 @@ class template_busit extends template
 		else $stack = null;
 
 		$_SESSION['MESSAGE']['TYPE'] = 'error';
-		$_SESSION['MESSAGE']['TEXT'] = "<p>".nl2br($message)."</p><strong>".nl2br($detail)."</strong>";
+		$_SESSION['MESSAGE']['TEXT'] = "<p>".security::encode($message, true, true)."</p><strong>".security::encode($detail, true, true)."</strong>";
 		
 		if( $stack != null )
 		{
@@ -365,7 +365,7 @@ $top .= "\">";
 			if( strstr($GLOBALS['CONFIG']['PAGE'], 'panel') !== false )
 			{
 				$self = api::send('self/system/user/select');
-				$self = $self[0];			
+				$self = $self[0];
 				$logs = api::send('self/busit/instance/log/select', array('read'=>0, 'count'=>1, 'error'=>1));
 				$logs = $logs[0];
 				

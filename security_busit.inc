@@ -40,6 +40,7 @@ class access_busit
 		$a['/panel/share'] = array('SELF_ACCESS');
 		$a['/panel/setup'] = array('SELF_ACCESS');
 		$a['/panel/stats'] = array('SELF_ACCESS');
+		$a['/panel/develop'] = array('SELF_ACCESS');
 		
 		$a['/visualize'] = array('SUPERADMIN');
 		$a['/visualize/data'] = array('SUPERADMIN');
