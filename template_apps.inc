@@ -23,7 +23,7 @@ class template_apps extends template
 		else $stack = null;
 
 		$_SESSION['MESSAGE']['TYPE'] = 'error';
-		$_SESSION['MESSAGE']['TEXT'] = "<p>".nl2br($message)."</p><strong>".nl2br($detail)."</strong>";
+		$_SESSION['MESSAGE']['TEXT'] = "<p>".security::encode($message, true, true)."</p><strong>".security::encode($detail, true, true)."</strong>";
 		
 		if( $stack != null )
 		{
