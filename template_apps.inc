@@ -68,6 +68,9 @@ class template_apps extends template
 	$top .= "
 	</head>
 	<body>
+		<script>
+			document.domain = 'busit.com';
+		</script>
 		<div id=\"apps\" style=\"width: 90%; margin: 0 auto;\">
 			";
 		
