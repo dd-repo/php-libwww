@@ -59,25 +59,36 @@ class api
 	
 	public static function buildMultipartQuery($params, $file, $boundary)
 	{
-		$content = "";
-		
+		$boundary = "trlalaaaaaaaaaaaaaaaaalalalaalalaaaaaaaaaaa";
+		$content = null;
+
 		foreach( $params as $key => $value )
 		{
 			$content .= "\r\n--{$boundary}\r\n" .
-						"Content-Disposition: form-data; name=\"{$key}\"\r\n" . 
-						"Content-Transfer-Encoding: binary\r\n" .
-						"\r\n" . 
-						$value;
+				"Content-Disposition: form-data; name=\"{$key}\"\r\n" .
+				"Content-Transfer-Encoding: binary\r\n" .
+				"\r\n" .
+				$value;
 		}
-		
-		$content .= "\r\n--{$boundary}\r\n" .
-					"Content-Disposition: form-data; name=\"upload\"; filename=\"{$file['name']}\"\r\n" .
-					"Content-Type: {$file['type']}\r\n" . 
-					"Content-Transfer-Encoding: binary\r\n" .
-					"\r\n" .
-					$file['binary'];
-					
-		$content .= "\r\n--{$boundary}--";
+
+		$i = 0;
+		foreach( $files as $f )
+		{
+			if( $i == 0 )
+				$name = 'file';
+			else
+				$name = 'file' . $i;
+
+			$content .= "\r\n--{$boundary}\r\n" .
+				"Content-Disposition: form-data; name=\"{$name}\"; filename=\"{$f['name']}\"\r\n" .
+				"Content-Type: {$f['mime']}\r\n" .
+				"Content-Transfer-Encoding: binary\r\n" .
+				"\r\n" .
+				$f['binary'];
+
+			$content .= "\r\n--{$boundary}--";
+			$i++;
+		}
 
 		return $content;
 	}
