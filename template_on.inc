@@ -248,11 +248,48 @@ $top .= "
 									<li id=\"search-li\" class=\"search\"><form id=\"searchform\"><input type=\"submit\" style=\"display: none;\" /><input class=\"auto\" style=\"width: 220px; font-size: 15px;\" type=\"text\" id=\"search\" value=\"{$GLOBALS['lang']['search']}\" onfocus=\"this.value = this.value=='{$GLOBALS['lang']['search']}' ? '' : this.value; this.style.color='#4c4c4c';\" onfocusout=\"this.value = this.value == '' ? this.value = '{$GLOBALS['lang']['search']}' : this.value; this.value=='{$GLOBALS['lang']['search']}' ? this.style.color='#cccccc' : this.style.color='#4c4c4c'\" /></form></li>";
 			}
 			
+			// admin menu search button
+			if( (strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false) && ($GLOBALS['security']->hasAccess('/admin')) )
+				$menu .= "
+					<li id=\"search_admin\" class=\"search_admin\" style=\"float:right!important;\">
+						<a id=\"link-search-admin\" href=\"/admin\" onclick=\"$('#search-admin-form').toggle(); return false;\">
+							<img src=\"/on/images/search.png\" alt=\"\" style=\"height: 20px;\"/>
+						</a>
+					</li>
+				";
 
 			$menu .= "
 								</ul>
 							</div>
 					</div>";
+			
+			// admin menu search form
+			if( (strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false) && ($GLOBALS['security']->hasAccess('/admin')) )
+				$menu .= "
+					<div id=\"search-admin-form\">
+						<div>
+							<div class=\"search-admin-form\">
+								<form action=\"/admin/search_action\" method=\"post\" id=\"site_search_form\">
+									<fieldset>
+										<input class=\"auto\" type=\"text\" name=\"name\" placeholder=\"{$GLOBALS['lang']['search_username']}\" />
+									</fieldset>
+									<fieldset>
+										<input class=\"auto\" id=\"site_search_val\" type=\"text\" name=\"site\" placeholder=\"{$GLOBALS['lang']['search_site']}\" />
+									</fieldset>
+									<fieldset>
+										<input class=\"auto\" type=\"text\" name=\"email\" placeholder=\"{$GLOBALS['lang']['search_email']}\" />
+									</fieldset>
+									<fieldset>
+										<input class=\"auto\" type=\"text\" name=\"domain\" placeholder=\"{$GLOBALS['lang']['search_domain']}\" />
+									</fieldset>
+									<fieldset>
+										<input type=\"submit\" value=\"{$GLOBALS['lang']['search_go']}\" />
+									</fieldset>					
+								</form>
+							</div>
+						</div>
+					</div>
+				";
 			
 			return $menu;
 		}
