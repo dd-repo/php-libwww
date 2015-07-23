@@ -12,7 +12,7 @@ if( file_exists( $file ) )
 }
 else if( file_exists( '../www.ini' ) )
 {
-    $conf = parse_ini_file('../www.ini');
+    $conf = parse_ini_file('../www.ini', true);
     $conf['type'] = 'file';
 }
 
