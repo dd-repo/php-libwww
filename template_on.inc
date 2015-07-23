@@ -298,6 +298,7 @@ $top .= "
 					<li><a href=\"/about/contact\">{$GLOBALS['lang']['CONTACT']}</a></li>
 					<li><a href=\"/about/team\">{$GLOBALS['lang']['TEAM']}</a></li>
 					<li><a href=\"/doc\">{$GLOBALS['lang']['HELP']}</a></li>
+					<li><a href=\"/org/help\">{$GLOBALS['lang']['DONATE']}</a></li>
 					<li><a href=\"/directory\">{$GLOBALS['lang']['DIRECTORY']}</a></li>
 					<li><a href=\"/developers\">{$GLOBALS['lang']['DEVELOPERS']}</a></li>
 					<li><a href=\"/status\">{$GLOBALS['lang']['STATUS']}</a></li>
