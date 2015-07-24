@@ -427,7 +427,7 @@ $top .= "
 						</fieldset>
 						<fieldset>
 							<label class=\"clean\">
-								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
+								<input class=\"auto\" type=\"password\" placeholder=\"***********\" name=\"password\" />
 								".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['lab_password']}</span>")."
 							</label>
 						</fieldset>						
@@ -460,8 +460,8 @@ $top .= "
 							</label>
 						</fieldset>							
 						<fieldset>
-							<input type=\"checkbox\" name=\"remember\" value=\"remember\" />
-							<label style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
+							<input id=\"remember2\" type=\"checkbox\" name=\"remember\" value=\"remember\" />
+							<label for=\"remember2\" style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
 						</fieldset>
 						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['login']}\" />
