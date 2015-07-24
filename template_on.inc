@@ -2,6 +2,24 @@
 
 class template_on extends template
 {
+	public function getCookieWarning() 
+	{
+		if(!isset($_COOKIE["cookie_agreement"]) || $_COOKIE['cookie_agreement'] != true) {
+			if(!isset($_COOKIE["cookie_agreement"]))
+				setcookie("cookie_agreement", 1, time()+32745600);
+			
+			$cookie_warning = "
+				<div id=\"cookies_warning\">
+					{$GLOBALS['lang']['cookie_explain_short']}
+					<a href=\"/about?cookie\">{$GLOBALS['lang']['cookie_more']}</a>
+					<button onclick=\"$(this).parent().fadeOut();\">{$GLOBALS['lang']['cookie_accept']}</button>
+				</div>
+			";
+		}
+		
+		return $cookie_warning;
+	}
+	
 	public function __construct()
 	{
 		$GLOBALS['lang']->import($GLOBALS['CONFIG']['CLASSPATH'] . '/template_on.lang');
@@ -32,24 +50,6 @@ class template_on extends template
 		}
 		
 		$this->output();
-	}
-	
-	public function getCookieWarning() 
-	{
-		if(!isset($_COOKIE["cookie_agreement"]) || $_COOKIE['cookie_agreement'] != true) {
-			if(!isset($_COOKIE["cookie_agreement"]))
-				setcookie("cookie_agreement", 1, time()+32745600);
-			
-			$cookie_warning = "
-				<div id=\"cookies_warning\">
-					{$GLOBALS['lang']['cookie_explain_short']}
-					<a href=\"/about?cookie\">{$GLOBALS['lang']['cookie_more']}</a>
-					<button onclick=\"$(this).parent().fadeOut();\">{$GLOBALS['lang']['cookie_accept']}</button>
-				</div>
-			";
-		}
-		
-		return $cookie_warning;
 	}
 	
 	public function top()
