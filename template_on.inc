@@ -420,11 +420,16 @@ $top .= "
 					<form action=\"/login_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['ph_username']}\" name=\"username\" />
+								<span class=\"help-block\">{$GLOBALS['lang']['lab_username']}</span>
+							</label>
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
-							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['register']}</span>")."
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
+								".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['lab_password']}</span>")."
+							</label>
 						</fieldset>						
 						<fieldset>
 							<input id=\"remember\" type=\"checkbox\" name=\"remember\" value=\"remember\" />
@@ -443,12 +448,17 @@ $top .= "
 					<form action=\"/login_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['ph_username']}\" name=\"username\" />
+								<span class=\"help-block\">{$GLOBALS['lang']['lab_username']}</span>
+							</label>
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />
-							".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['register']}</span>")."
-						</fieldset>						
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
+								".(isset($_GET['elogin'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['auth']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['lab_password']}</span>")."
+							</label>
+						</fieldset>							
 						<fieldset>
 							<input type=\"checkbox\" name=\"remember\" value=\"remember\" />
 							<label style=\"display: inline-block; padding-left: 10px;\">{$GLOBALS['lang']['remember']}</label>
@@ -466,8 +476,10 @@ $top .= "
 					<form action=\"/recovery_action\" method=\"post\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" name=\"username\" />
-							".(isset($_GET['erecovery'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['erecovery']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['recoverytips']}</span>")."
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['ph_username']}\" name=\"username\" />
+								".(isset($_GET['erecovery'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['erecovery']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['recoverytips']}</span>")."
+							</label>
 						</fieldset>
 						<fieldset>
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['save']}\" />
@@ -482,12 +494,16 @@ $top .= "
 					<form action=\"/signup_action\" method=\"post\" id=\"signup_valid\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<fieldset>
-							<input style=\"width: 300px;\" class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['email']}\" value=\"".($_SESSION['JOIN_EMAIL']?"{$_SESSION['JOIN_EMAIL']}":"")."\" name=\"email\" />
-							".(isset($_GET['esignup'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['esignup']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['email_tip']}</span>")."
+							<label class=\"clean\">
+								<input style=\"width: 300px;\" class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['email']}\" value=\"".($_SESSION['JOIN_EMAIL']?"{$_SESSION['JOIN_EMAIL']}":"")."\" name=\"email\" />
+								".(isset($_GET['esignup'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['esignup']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['email_tip']}</span>")."
+							</label>
 						</fieldset>
 						<fieldset>
-							<input type=\"checkbox\" name=\"conditions\" value=\"1\" />
-							{$GLOBALS['lang']['conditions']}
+							<label class=\"clean\">
+								<input type=\"checkbox\" name=\"conditions\" value=\"1\" />
+								{$GLOBALS['lang']['conditions']}
+							</label>
 						</fieldset>
 						<fieldset>	
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
@@ -504,11 +520,16 @@ $top .= "
 						<input type=\"hidden\" name=\"email\" value=\"{$_SESSION['REGISTER']['EMAIL']}\" />
 						<input type=\"hidden\" name=\"code\" value=\"{$_SESSION['REGISTER']['CODE']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['username']}\" value=\"".($_SESSION['JOIN_USER']?"{$_SESSION['JOIN_USER']}":"")."\" name=\"username\" />
-							".(isset($_GET['eregister'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['eregister']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</span>")."
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['ph_username']}\" value=\"".($_SESSION['JOIN_USER']?"{$_SESSION['JOIN_USER']}":"")."\" name=\"username\" />
+								".(isset($_GET['eregister'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['eregister']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</span>")."
+							</label>
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />							
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
+								<span class=\"help-block\">{$GLOBALS['lang']['lab_password']}</span>
+							</label>
 						</fieldset>		
 						<fieldset>	
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
@@ -524,12 +545,16 @@ $top .= "
 						<input type=\"hidden\" name=\"token\" value=\"{$_SESSION['CHANGEPASS']['TOKEN']}\" />
 						<input type=\"hidden\" name=\"user\" value=\"{$_SESSION['CHANGEPASS']['USER']}\" />
 						<fieldset>
-							<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['password']}\" name=\"password\" />							
-							".(isset($_GET['echangepassword'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['echangepassword']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['changetip']}</span>")."
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />							
+								".(isset($_GET['echangepassword'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['echangepassword']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['changetip']}</span>")."
+							</label>
 						</fieldset>
 						<fieldset>
-							<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" />							
-							<span class=\"help-block\">{$GLOBALS['lang']['confirmtip']}</span>
+							<label class=\"clean\">
+								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['confirm']}\" name=\"confirm\" />							
+								<span class=\"help-block\">{$GLOBALS['lang']['confirmtip']}</span>
+							</label>
 						</fieldset>					
 						<fieldset>	
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['change']}\" />
