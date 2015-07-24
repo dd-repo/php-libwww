@@ -316,7 +316,6 @@ $top .= "
 	public function bottom()
 	{
 		$bottom = "";
-
 		
 		$bottom .= "	
 		</div>
@@ -324,70 +323,85 @@ $top .= "
 		$bottom .= $this->getObjects();
 		
 		$bottom .= "
-
-		<div id=\"footer\" class=\"footer\">
-			<div class=\"content\">
-				<div class=\"social\">
-					<a class=\"link\" href=\"https://twitter.com/OlympeNet\">
-						<span class=\"social_link twitter\"><i class=\"fa fa-twitter\"></i></span>
-					</a>
-					<a class=\"link\" href=\"https://www.facebook.com/olympe.org\">
-						<span class=\"social_link fb\"><i class=\"fa fa-facebook\"></i></span>
-					</a>
-					<a class=\"link\" href=\"https://google.com/+OlympeIn\">
-						<span class=\"social_link google\"><i class=\"fa fa-google-plus\"></i></span>
-					</a>
-					<a class=\"link\" href=\"https://www.linkedin.com/company/5121206\">
-						<span class=\"social_link linkedin\"><i class=\"fa fa-linkedin\"></i></span>
-					</a>
-					<a class=\"link\" href=\"http://www.youtube.com/channel/UCn1nV97-5DHPIls0_uyP1ig\">
-						<span class=\"social_link youtube\"><i class=\"fa fa-youtube-play\"></i></span>
-					</a>
-					<div class=\"clear\"></div>
-				</div>
-				<br />
-				<ul>
-					<li><a href=\"/about\">{$GLOBALS['lang']['ABOUT']}</a></li>
-					<li><a href=\"/about/contact\">{$GLOBALS['lang']['CONTACT']}</a></li>
-					<li><a href=\"/about/team\">{$GLOBALS['lang']['TEAM']}</a></li>
-					<li><a href=\"/doc\">{$GLOBALS['lang']['HELP']}</a></li>
-					<li><a href=\"/org/help\">{$GLOBALS['lang']['DONATE']}</a></li>
-					<li><a href=\"/directory\">{$GLOBALS['lang']['DIRECTORY']}</a></li>
-					<li><a href=\"/developers\">{$GLOBALS['lang']['DEVELOPERS']}</a></li>
-					<li><a href=\"/status\">{$GLOBALS['lang']['STATUS']}</a></li>
-				</ul>
-				<p style=\"margin: 10px 0 0 0; padding: 0; font-size: 12px;\">
+			<div id=\"footer\" class=\"footer\">
+				<div class=\"content\">
+					<div class=\"social\">
+						<a class=\"link\" href=\"https://twitter.com/OlympeNet\">
+							<span class=\"social_link twitter\"><i class=\"fa fa-twitter\"></i></span>
+						</a>
+						<a class=\"link\" href=\"https://www.facebook.com/olympe.org\">
+							<span class=\"social_link fb\"><i class=\"fa fa-facebook\"></i></span>
+						</a>
+						<a class=\"link\" href=\"https://google.com/+OlympeIn\">
+							<span class=\"social_link google\"><i class=\"fa fa-google-plus\"></i></span>
+						</a>
+						<a class=\"link\" href=\"https://www.linkedin.com/company/5121206\">
+							<span class=\"social_link linkedin\"><i class=\"fa fa-linkedin\"></i></span>
+						</a>
+						<a class=\"link\" href=\"http://www.youtube.com/channel/UCn1nV97-5DHPIls0_uyP1ig\">
+							<span class=\"social_link youtube\"><i class=\"fa fa-youtube-play\"></i></span>
+						</a>
+						<div class=\"clear\"></div>
+					</div>
+					<br />
+					<ul>
+						<li><a href=\"/about\">{$GLOBALS['lang']['ABOUT']}</a></li>
+						<li><a href=\"/about/contact\">{$GLOBALS['lang']['CONTACT']}</a></li>
+						<li><a href=\"/about/team\">{$GLOBALS['lang']['TEAM']}</a></li>
+						<li><a href=\"/doc\">{$GLOBALS['lang']['HELP']}</a></li>
+						<li><a href=\"/org/help\">{$GLOBALS['lang']['DONATE']}</a></li>
+						<li><a href=\"/directory\">{$GLOBALS['lang']['DIRECTORY']}</a></li>
+						<li><a href=\"/developers\">{$GLOBALS['lang']['DEVELOPERS']}</a></li>
+						<li><a href=\"/status\">{$GLOBALS['lang']['STATUS']}</a></li>
+					</ul>
+					<p style=\"margin: 10px 0 0 0; padding: 0; font-size: 12px;\">
 	";
 	$request = str_replace(array('?lang='.translator::getLanguage(), '&lang='.translator::getLanguage()) , array('', ''), $_SERVER['REQUEST_URI']);
 
 	$bottom .= "	
-					".(translator::getLanguage()=='EN'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=EN\">")."English".(translator::getLanguage()=='EN'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-					".(translator::getLanguage()=='FR'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=FR\">")."Fran&ccedil;ais".(translator::getLanguage()=='FR'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-					".(translator::getLanguage()=='ES'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=ES\">")."Espa&ntilde;ol".(translator::getLanguage()=='ES'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-					".(translator::getLanguage()=='DE'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=DE\">")."Deutsch".(translator::getLanguage()=='DE'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-					".(translator::getLanguage()=='IT'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=IT\">")."Italiano".(translator::getLanguage()=='IT'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
-				</p>
-				<p>{$GLOBALS['lang']['COPYRIGHT']} | {$GLOBALS['lang']['SYS']}</p> 
+						".(translator::getLanguage()=='EN'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=EN\">")."English".(translator::getLanguage()=='EN'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
+						".(translator::getLanguage()=='FR'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=FR\">")."Fran&ccedil;ais".(translator::getLanguage()=='FR'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
+						".(translator::getLanguage()=='ES'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=ES\">")."Espa&ntilde;ol".(translator::getLanguage()=='ES'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
+						".(translator::getLanguage()=='DE'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=DE\">")."Deutsch".(translator::getLanguage()=='DE'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
+						".(translator::getLanguage()=='IT'?"<span style=\"color: #4d4d4d;\">":"<a href=\"{$request}".(strstr($request,'?')===false?"?":"&")."lang=IT\">")."Italiano".(translator::getLanguage()=='IT'?"</span>":"</a>")."&nbsp;&nbsp;&nbsp;
+					</p>
+					<p>{$GLOBALS['lang']['COPYRIGHT']} | {$GLOBALS['lang']['SYS']}</p> 
+				</div>
 			</div>
 		</div>
-	</div>
-	<script type=\"text/javascript\">
-	  var _paq = _paq || [];
-	  _paq.push([\"trackPageView\"]);
-	  _paq.push([\"enableLinkTracking\"]);
+	";
+	
+	if(!isset($_COOKIE["cookie_agreement"]) || $_COOKIE['cookie_agreement'] != true) {
+		if(!isset($_COOKIE["cookie_agreement"]))
+			setcookie("cookie_agreement", 1, time()+32745600);
+		
+		$bottom .= "
+			<div id=\"cookies_warning\">
+				{$GLOBALS['lang']['cookie_explain_short']}
+				<a href=\"/about?cookie\">{$GLOBALS['lang']['cookie_more']}</a>
+				<button onclick=\"$(this).parent().fadeOut();\">{$GLOBALS['lang']['cookie_accept']}</button>
+			</div>
+		";
+	}
+	
+	$bottom .= "
+		<script type=\"text/javascript\">
+		  var _paq = _paq || [];
+		  _paq.push([\"trackPageView\"]);
+		  _paq.push([\"enableLinkTracking\"]);
 
-	  (function() {
-		var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://stats.anotherservice.com/\";
-		_paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);
-		_paq.push([\"setSiteId\", \"67\"]);
-		var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
-		g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
-	  })();
-	  
-	  
-	</script>
-	</body>
-</html>";
+		  (function() {
+			var u=((\"https:\" == document.location.protocol) ? \"https\" : \"http\") + \"://stats.anotherservice.com/\";
+			_paq.push([\"setTrackerUrl\", u+\"piwik.php\"]);
+			_paq.push([\"setSiteId\", \"67\"]);
+			var d=document, g=d.createElement(\"script\"), s=d.getElementsByTagName(\"script\")[0]; g.type=\"text/javascript\";
+			g.defer=true; g.async=true; g.src=u+\"piwik.js\"; s.parentNode.insertBefore(g,s);
+		  })();
+		  
+		  
+		</script>
+		</body>
+	</html>";
 		
 		return $bottom;
 	}
@@ -520,12 +534,12 @@ $top .= "
 						</fieldset>
 					</form>
 				</div>
-				<div id=\"cookie\" style=\"display: none; text-align: center;\">
+				<div id=\"new_CGU\" style=\"display: none; text-align: center;\">
 					<br />
-					<h3>{$GLOBALS['lang']['cookie_title']}</h3>
-					<p style=\"text-align: center;\">{$GLOBALS['lang']['cookie']}</p>
+					<h3>{$GLOBALS['lang']['new_terms_title']}</h3>
+					<p style=\"text-align: center;\">{$GLOBALS['lang']['new_terms_text']}</p>
 					<a class=\"button classic\" href=\"/cookie_action\" style=\"width: 180px; height: 22px; margin: 0 auto;\">
-						<span style=\"display: block; padding-top: 3px;\">{$GLOBALS['lang']['cookie_accept']}</span>
+						<span style=\"display: block; padding-top: 3px;\">{$GLOBALS['lang']['new_terms_accept']}</span>
 					</a>
 					<br />
 				</div>
