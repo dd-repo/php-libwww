@@ -521,19 +521,70 @@ $top .= "
 				<div class=\"form-small\">		
 					<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
 					<p style=\"text-align: center;\">{$GLOBALS['lang']['signup_explain']}</p>
+			";
+			
+			if(isset($_GET['eregister'])) {
+				// Get the API error
+				$register_error = $_SESSION['REGISTER']['ERROR'];
+				$registration_error_num = 0;
+				
+				// Seek for the issue
+				$error_1 = 'Parameter name is not optional';
+				$empty_username = strpos($register_error, $error_1);
+				
+				$error_2 = 'Existing local user';
+				$used_username = strpos($register_error, $error_2);
+				
+				$error_3 = 'Parameter pass is too short';
+				$short_pass = strpos($register_error, $error_3);
+				
+				$error_4 = 'Parameter pass is not optional';
+				$empty_pass = strpos($register_error, $error_4);
+				
+				$error_5 = 'Parameter name does not match';
+				$unmatch_username = strpos($register_error, $error_5);
+				
+				$error_6 = 'Email already exists';
+				$used_email = strpos($register_error, $error_6);
+
+				if ($empty_username !== false) 
+					$registration_error_num = 1;
+				
+				if ($used_username !== false) 
+					$registration_error_num = 2;
+				
+				if ($short_pass !== false) 
+					$registration_error_num = 3;
+
+				if ($empty_pass !== false) 
+					$registration_error_num = 4;
+				
+				if ($unmatch_username !== false) 
+					$registration_error_num = 5;
+				
+				if ($used_email !== false) 
+					$registration_error_num = 6;
+				
+				$objects .= "
+					<hr />
+					<span class=\"message error\">". $GLOBALS['lang']['register_error_'. $registration_error_num] ."</span>";				
+				
+			}
+			
+		$objects .= "
 					<form action=\"/confirm_action\" method=\"post\" id=\"register_valid\" class=\"center\">
 						<input type=\"hidden\" name=\"antispam\" value=\"{$_SESSION['ANTISPAM']}\" />
 						<input type=\"hidden\" name=\"email\" value=\"{$_SESSION['REGISTER']['EMAIL']}\" />
 						<input type=\"hidden\" name=\"code\" value=\"{$_SESSION['REGISTER']['CODE']}\" />
 						<fieldset>
 							<label class=\"clean\">
-								<input class=\"auto\" type=\"text\" placeholder=\"{$GLOBALS['lang']['ph_username']}\" value=\"".($_SESSION['JOIN_USER']?"{$_SESSION['JOIN_USER']}":"")."\" name=\"username\" />
-								".(isset($_GET['eregister'])?"<span class=\"help-block\" style=\"color: #bc0000;\">{$GLOBALS['lang']['eregister']}</span>":"<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</span>")."
+								<input class=\"auto\" type=\"text\" required placeholder=\"{$GLOBALS['lang']['ph_username']}\" value=\"".($_SESSION['REGISTER']['USERNAME']?"{$_SESSION['REGISTER']['USERNAME']}":"")."\" name=\"username\" />
+								<span class=\"help-block\">{$GLOBALS['lang']['usertip']}</span>
 							</label>
 						</fieldset>
 						<fieldset>
 							<label class=\"clean\">
-								<input class=\"auto\" type=\"password\" placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
+								<input class=\"auto\" type=\"password\" required placeholder=\"{$GLOBALS['lang']['ph_password']}\" name=\"password\" />
 								<span class=\"help-block\">{$GLOBALS['lang']['lab_password']}</span>
 							</label>
 						</fieldset>		
