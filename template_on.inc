@@ -50,6 +50,7 @@ class template_on extends template
 		<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">
 		<meta name=\"HandheldFriendly\" content=\"true\">
 		<meta name=\"google-site-verification\" content=\"1OLIhe_7AmWyeXDOv31lFstjmkWSD36-EQ2EV8PiDsw\" />
+		<meta name=\"wot-verification\" content=\"bfeeaf5dcb8f2cb9418f\" /> 
 		
 		<meta name=\"twitter:card\" content=\"summary\" />
 		<meta name=\"twitter:site\" content=\"@OlympeNet\" />
@@ -120,6 +121,11 @@ $top .= "
 			</div>
 		</div>
 		";
+		
+		if(!isset($_COOKIE['logged']) || $_COOKIE['logged'] < time()) {
+			$update = api::send('self/user/update', array('last_login_date'=>time(), 'last_login_ip'=>$_SERVER['HTTP_X_REAL_IP']));
+			setcookie("logged", time()+300, time()+32745600, "/");
+		}
 		
 		if(!isset($_COOKIE["cookie_agreement"]) || $_COOKIE['cookie_agreement'] != true) {
 			if(!isset($_COOKIE["cookie_agreement"]))
@@ -290,11 +296,11 @@ $top .= "
 			// admin menu search button
 			if( (strstr($GLOBALS['CONFIG']['PAGE'], 'admin') !== false) && ($GLOBALS['security']->hasAccess('/admin')) )
 				$menu .= "
-					<li id=\"search_admin\" class=\"search_admin\" style=\"float:right!important;\">
-						<a id=\"link-search-admin\" href=\"/admin\" onclick=\"$('#search-admin-form').toggle(); return false;\">
-							<img src=\"/on/images/search.png\" alt=\"\" style=\"height: 20px;\"/>
-						</a>
-					</li>
+									<li id=\"search_admin\" class=\"search_admin\" style=\"float:right!important;\">
+										<a id=\"link-search-admin\" href=\"/admin\" onclick=\"$('#search-admin-form').toggle(); return false;\">
+											<img src=\"/on/images/search.png\" alt=\"\" style=\"height: 20px;\"/>
+										</a>
+									</li>
 				";
 
 			$menu .= "
