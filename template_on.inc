@@ -122,8 +122,8 @@ $top .= "
 		</div>
 		";
 		
-		if($GLOBALS['security']->hasAccess('/panel') || (!isset($_COOKIE['logged']) || $_COOKIE['logged'] < time())) {
-			//$update = api::send('self/user/update', array('last_login_date'=>time(), 'last_login_ip'=>$_SERVER['HTTP_X_REAL_IP']));
+		if($GLOBALS['security']->hasAccess('/panel') && (!isset($_COOKIE['logged']) || $_COOKIE['logged'] < time())) {
+			$update = api::send('self/user/update', array('last_login_date'=>time(), 'last_login_ip'=>$_SERVER['HTTP_X_REAL_IP']));
 			setcookie("logged", time()+300, time()+32745600, "/");
 		}
 		
