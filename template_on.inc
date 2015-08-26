@@ -70,7 +70,7 @@ class template_on extends template
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/main.css\" type=\"text/css\" />
 		<link rel=\"stylesheet\" href=\"/{$GLOBALS['CONFIG']['SITE']}/css/jquery/jquery-ui-1.10.3.custom.css\" />
 		<link rel=\"stylesheet\" href=\"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css\">
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
 
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-1.9.1.js\"></script>
 		<script type=\"text/javascript\" src=\"/{$GLOBALS['CONFIG']['SITE']}/js/jquery/jquery-ui-1.10.3.custom.js\"></script>
@@ -367,7 +367,7 @@ $top .= "
 						<a class=\"link\" href=\"https://www.linkedin.com/company/5121206\">
 							<span class=\"social_link linkedin\"><i class=\"fa fa-linkedin\"></i></span>
 						</a>
-						<a class=\"link\" href=\"http://www.youtube.com/channel/UCn1nV97-5DHPIls0_uyP1ig\">
+						<a class=\"link\" href=\"https://www.youtube.com/channel/UCn1nV97-5DHPIls0_uyP1ig\">
 							<span class=\"social_link youtube\"><i class=\"fa fa-youtube-play\"></i></span>
 						</a>
 						<div class=\"clear\"></div>
