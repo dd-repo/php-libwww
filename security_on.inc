@@ -23,6 +23,8 @@ class access_on
 		$a['/admin/messages'] = array('ACCESS', 'MESSAGE_SELECT');
 		$a['/admin/messages/detail'] = array('ACCESS', 'MESSAGE_SELECT');
 		$a['/admin/quotas'] = array('ACCESS', 'QUOTA_SELECT');
+		$a['/admin/directory'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/registrations'] = array('ACCESS', 'USER_SELECT');
 		
 		$a['/panel'] = array('ACCESS');
 		$a['/panel/index'] = array('ACCESS');
