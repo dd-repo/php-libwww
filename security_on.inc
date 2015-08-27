@@ -12,19 +12,27 @@ class access_on
 		$a = array();
 		
 		$a['/admin'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/users'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/users/detail'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/groups'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/blog'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/logs'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/index'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/grants'] = array('ACCESS', 'USER_SELECT');
-		$a['/admin/stats'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/accounts'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/backups'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/content'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/content/blog'] = array('ACCESS', 'NEWS_SELECT');
+		$a['/admin/content/directory'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/databases'] = array('ACCESS', 'DATABASE_SELECT');
+		$a['/admin/domains'] = array('ACCESS', 'DOMAIN_SELECT');
 		$a['/admin/messages'] = array('ACCESS', 'MESSAGE_SELECT');
 		$a['/admin/messages/detail'] = array('ACCESS', 'MESSAGE_SELECT');
-		$a['/admin/quotas'] = array('ACCESS', 'QUOTA_SELECT');
-		$a['/admin/directory'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/overquota'] = array('ACCESS', 'QUOTA_SELECT');
 		$a['/admin/registrations'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/settings'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/settings/quotas'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/settings/grants'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/settings/groups'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/sites'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/tokens'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/users'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/users/detail'] = array('ACCESS', 'USER_SELECT');
+		$a['/admin/logs'] = array('ACCESS', 'LOG_SELECT');
+		$a['/admin/index'] = array('ACCESS', 'USER_SELECT');
 		
 		$a['/panel'] = array('ACCESS');
 		$a['/panel/index'] = array('ACCESS');
