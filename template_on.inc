@@ -490,7 +490,7 @@ $top .= "
 					<div class=\"clearfix\">&nbsp;</div>
 				</div>
 			</div>
-			<div id=\"signup\" class=\"floatingdialog\">
+			<div id=\"signup_lock\" class=\"floatingdialog\">
 				<div class=\"form-small\">		
 					<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
 					<form action=\"/signup_action\" method=\"post\" id=\"signup_valid\" class=\"center\">
@@ -511,6 +511,12 @@ $top .= "
 							<input autofocus type=\"submit\" value=\"{$GLOBALS['lang']['signup']}\" ".($_SESSION['JOIN_STATUS']===0?'disabled':'')." />
 						</fieldset>
 					</form>
+				</div>
+			</div>
+			<div id=\"signup\" class=\"floatingdialog\">
+				<div class=\"form-small\">		
+					<h3 class=\"center\">{$GLOBALS['lang']['signup']}</h3>
+					<p class=\"center\">{$GLOBALS['lang']['signup_lock']}</p>
 				</div>
 			</div>
 			<div id=\"register\" class=\"floatingdialog\">
